@@ -332,5 +332,39 @@ components:
                       customTarget: ''
                       text: Acesse aqui
                     icon: ''
+  - type: Group
+    id: Qual é o objetivo do projeto?
+    shortTitle: Qual é o objetivo do projeto?
+    longTitle: ''
+    description: ''
+    showInMenu: false
+    animations: true
+    txtColor: Secondary
+    customTxtColor: ''
+    bgColor: Highlight
+    customBgColor: ''
+    backgroundMedia: []
+    overlay: ''
+    components:
+      - type: Columns
+        paddingTop: true
+        paddingBottom: true
+        invertOnMobile: false
+        columnsAlign: 66-33
+        column1:
+          components:
+            - type: Text
+              hasDropCap: false
+              content: |-
+                Documental.xyz foi originalmente pensada e desenhada como instrumento de defesa de direitos humanos e ambientais.
+
+                O objetivo da plataforma é oferecer uma ferramenta open-source para movimentos sociais, organizações civis e jornalistas documentarem e comunicarem histórias locais para audiências globais de forma socialmente envolvente e visualmente impactante.
+
+                A plataforma busca contribuir para a construção da capacidade da sociedade civil em investigar e documentar violações de direitos cometidas por estados e corporações, empoderando atores locais para comunicarem suas histórias através de novas tecnologias de visualização e mapeamento de dados, ao mesmo tempo que ampliando o debate público sobre justiça social e ambiental.
+        column2:
+          components:
+            - type: Text
+              hasDropCap: false
+              content: '### Qual é o objetivo do projeto?'
 ---
 
