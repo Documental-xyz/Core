@@ -2,7 +2,7 @@ name: Deploy to GitHub Pages (Astro)
 
 on:
   push:
-    branches: [main]  # default branch deployment
+    branches: [preview]  # default branch deployment
   workflow_dispatch:
 
 permissions:

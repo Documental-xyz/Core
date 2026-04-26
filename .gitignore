@@ -25,6 +25,9 @@ pnpm-debug.log*
 
 # tools
 *.aider*
+.codegpt/
+.roo/
+.opencode/
+.claude/
+AGENTS.md
 PROJECT.md
-.codegpt
-.roo
