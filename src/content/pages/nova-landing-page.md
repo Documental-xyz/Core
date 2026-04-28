@@ -59,7 +59,7 @@ components:
     overlay: ''
     components:
       - type: Columns
-        paddingTop: false
+        paddingTop: true
         paddingBottom: false
         invertOnMobile: false
         columnsAlign: 33-66

@@ -1400,93 +1400,26 @@ components:
                 text: Teste 2
                 content: ''
   - type: Cta
-    id: cta-exemplo-1
-    shortTitle: CTA Texto Simples
+    id: CTA
+    shortTitle: CTA
     longTitle: ''
     description: ''
     showInMenu: false
     animations: true
     txtColor: Primary
     customTxtColor: ''
-    bgColor: Highlight
-    customBgColor: ''
+    bgColor: Custom
+    customBgColor: '#d78989ff'
     backgroundMedia: []
-    overlay: ''
-    layout: text
-    mediaType: ''
-    media: ''
-    ctaText: Este é um exemplo de CTA com **layout de texto** e cor de destaque (Highlight). O texto destacado aparece à esquerda e o conteúdo à direita.
-    highlightedText: CTA Texto Simples
-    link:
-      url: '#'
-      target: _self
-      text: Saiba Mais
-  - type: Cta
-    id: cta-exemplo-2
-    shortTitle: CTA com Mídia
-    longTitle: ''
-    description: ''
-    showInMenu: false
-    animations: true
-    txtColor: Primary
-    customTxtColor: ''
-    bgColor: Secondary
-    customBgColor: ''
-    backgroundMedia: []
-    overlay: ''
+    overlay: dark
     layout: media
-    mediaType: video
-    media: /uploads/cover_video_helicoptero.mp4
-    ctaText: Este é um exemplo de CTA com **layout de mídia** — a imagem aparece à esquerda e o texto com botão à direita.
-    highlightedText: ''
-    link:
-      url: '#'
-      target: _blank
-      text: Ver Detalhes
-  - type: Cta
-    id: cta-exemplo-3
-    shortTitle: CTA com Background
-    longTitle: ''
-    description: ''
-    showInMenu: false
-    animations: true
-    txtColor: Secondary
-    customTxtColor: ''
-    bgColor: Primary
-    customBgColor: ''
-    backgroundMedia:
-      - type: backgroundImage
-        imgSrc: /uploads/group-bg.png
-    overlay: dark
-    layout: text
-    mediaType: ''
-    media: ''
-    ctaText: Este é um exemplo de CTA com **imagem de background**, overlay escuro e texto claro sobreposto. Demonstra a integração com `backgroundMedia` e `overlay`.
-    highlightedText: CTA com Background
-    link:
-      url: '#'
-      target: _self
-      text: Explorar
-  - type: Cta
-    id: '222'
-    shortTitle: Tap
-    longTitle: Thiago Paixao
-    description: ''
-    showInMenu: false
-    animations: true
-    txtColor: Primary
-    customTxtColor: ''
-    bgColor: Secondary
-    customBgColor: ''
-    backgroundMedia:
-      - type: backgroundImage
-        imgSrc: /uploads/casa_afonso_sardinha.jpg
-    overlay: dark
-    layout: text
     mediaType: image
-    media: ''
-    ctaText: fsdfsdfsdfd fsdfsd sf sfdf fsdf fsd fsd sfdf sdf wesdvfwegmkadnfrrweuo weoin nwenuo rnweuo rnweruion vsdaeior iwenior ier dsffsdd
-    highlightedText: Teste de CTA
-    link: null
+    media: /uploads/alter-do-chao-azul.png
+    ctaText: CTA cta cta cta
+    highlightedText: cta cta cta
+    link:
+      url: https://www.advocacia.autonoma.xyz/
+      target: _self
+      text: autonoma
 ---
 
