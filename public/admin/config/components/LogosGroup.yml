@@ -1,5 +1,5 @@
 logosGroup: &logosGroup
-  label: 'Logos Group'
+  label: 'Logos Strip'
   name: 'LogosGroup'
   widget: 'object'
   summary: '{{fields.logos}}'
