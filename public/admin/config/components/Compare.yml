@@ -1,5 +1,5 @@
 compare: &compare
-  label: 'Compare'
+  label: 'Image Compare'
   name: 'Compare'
   widget: 'object'
   summary: '{{fields.caption}}'
