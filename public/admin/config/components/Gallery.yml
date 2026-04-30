@@ -1,5 +1,5 @@
 gallery: &gallery
-  label: 'Gallery'
+  label: 'Image Gallery'
   name: 'Gallery'
   widget: 'object'
   summary: '{{fields.uniqid}}'
