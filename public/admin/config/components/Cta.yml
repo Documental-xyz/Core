@@ -1,5 +1,5 @@
 cta: &cta
-  label: 'CTA'
+  label: 'Call to Action'
   name: 'Cta'
   widget: 'object'
   summary: '{{fields.shortTitle}}'
