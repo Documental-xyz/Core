@@ -1,5 +1,5 @@
 columnSticky: &columnSticky
-  label: 'Column Sticky'
+  label: 'Fixed Column (Title Column)'
   name: 'ColumnSticky'
   widget: 'object'
   summary: '{{fields.title}}'
