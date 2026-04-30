@@ -14,12 +14,13 @@ group: &group
       name: 'id'
       widget: 'string'
       required: true
+      hint: 'Component identifier name. Must be unique for each component. Use only letters and numbers.'
       collapsed: true
     - label: 'Short Title'
       name: 'shortTitle'
       widget: 'string'
       required: true
-      hint: 'Título curto (obrigatório) - será usado no futuro'
+      hint: 'Component title. This is the name that will appear in the menu if enabled.'
       collapsed: true
     - label: 'Long Title'
       name: 'longTitle'
@@ -37,7 +38,7 @@ group: &group
       name: 'showInMenu'
       widget: 'boolean'
       default: false
-      hint: 'Ativar para mostrar este grupo no menu de navegação'
+      hint: 'Enable to show this group in the menu.'
       collapsed: true
     - label: 'Animations'
       name: 'animations'
@@ -82,7 +83,7 @@ group: &group
       enableAlpha: true
       allowInput: true
       collapsed: true
-    - label: 'Add Background media'
+    - label: 'Add Background Media'
       name: 'backgroundMedia'
       required: false
       widget: 'list'
