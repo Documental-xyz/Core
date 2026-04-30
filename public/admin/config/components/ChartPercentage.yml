@@ -1,5 +1,5 @@
 chartPercentage: &chartPercentage
-  label: 'Chart Percentage'
+  label: 'Percentage Chart'
   name: 'ChartPercentage'
   widget: 'object'
   summary: '{{fields.chartPercentageTitle}}'
