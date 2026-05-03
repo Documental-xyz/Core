@@ -263,8 +263,22 @@ const componentSchema = z.object({
 
   // Atributos específicos do CTA
   highlightedText: z.string().optional(),
-  media: z.string().optional(),
-  mediaType: z.string().optional(),
+  ctaMedia: z
+    .array(
+      z.discriminatedUnion('type', [
+        z.object({
+          type: z.literal('ctaImage'),
+          src: z.string().optional(),
+          externalUrl: z.string().optional(),
+        }),
+        z.object({
+          type: z.literal('ctaVideo'),
+          src: z.string().optional(),
+          externalUrl: z.string().optional(),
+        }),
+      ])
+    )
+    .optional(),
   ctaText: z.string().optional().transform(processMarkdown),
   link: linkSchema.nullable().optional(),
   imgBg: z.string().optional(),

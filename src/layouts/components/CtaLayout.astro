@@ -4,16 +4,13 @@ import AnimationToggle from '../../components/AnimationToggle.astro';
 const { Component, props, pageSettings } = Astro.props;
 const {
   id,
-  layout,
   highlightedText,
-  mediaType,
-  media,
+  ctaMedia,
   txtColor,
   bgColor,
   ctaText,
   link,
   backgroundMedia,
-  imgBg: imgBgLegacy,
   overlay,
   body,
   animations = true
@@ -37,9 +34,25 @@ switch (globalAnimationMode) {
     shouldDisableAnimations = false;
 }
 
-let img;
-if (media && mediaType === 'image') {
-  img = /^https?:\/\//i.test(media) ? media : new URL(media.replace(/^\/+/, ''), new URL(import.meta.env.BASE_URL, 'http://local')).pathname;
+const hasMedia = ctaMedia && ctaMedia.length > 0;
+const resolvedLayout = hasMedia ? 'media' : 'text';
+
+let resolvedMediaType;
+let resolvedMedia;
+
+if (hasMedia) {
+  const item = ctaMedia[0];
+  const src = item.externalUrl || item.src;
+
+  if (item.type === 'ctaImage' && src) {
+    resolvedMediaType = 'image';
+    resolvedMedia = /^https?:\/\//i.test(src)
+      ? src
+      : new URL(src.replace(/^\/+/, ''), new URL(import.meta.env.BASE_URL, 'http://local')).pathname;
+  } else if (item.type === 'ctaVideo' && src) {
+    resolvedMediaType = 'video';
+    resolvedMedia = src;
+  }
 }
 
 let imgBg;
@@ -54,17 +67,15 @@ if (backgroundMedia && backgroundMedia.length > 0) {
     videoBg = bgMedia.videoSrc;
     videoBg = /^https?:\/\//i.test(videoBg) ? videoBg : new URL(videoBg.replace(/^\/+/, ''), new URL(import.meta.env.BASE_URL, 'http://local')).pathname;
   }
-} else if (imgBgLegacy) {
-  imgBg = /^https?:\/\//i.test(imgBgLegacy) ? imgBgLegacy : new URL(imgBgLegacy.replace(/^\/+/, ''), new URL(import.meta.env.BASE_URL, 'http://local')).pathname;
 }
 ---
 <AnimationToggle disabled={shouldDisableAnimations}>
   <section id={id} style={`background-color: var(--clr-bg);`}>
     <Component
-      layout={layout}
+      layout={resolvedLayout}
       highlightedText={highlightedText}
-      media={mediaType === 'image' ? img : media}
-      mediaType={mediaType}
+      media={resolvedMedia}
+      mediaType={resolvedMediaType}
       text={ctaText}
       link={link}
       imgBg={imgBg}

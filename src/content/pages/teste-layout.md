@@ -1172,8 +1172,6 @@ components:
     animations: true
     txtColor: Secondary
     bgColor: Primary
-    mediaType: ''
-    media: ''
     ctaText: 'Bloco: CTA_CTA Text_Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt.'
     highlightedText: Sed ut perspiciatis unde omnis iste natus error
     link:
@@ -1412,9 +1410,6 @@ components:
     customBgColor: ''
     backgroundMedia: []
     overlay: ''
-    layout: text
-    mediaType: ''
-    media: ''
     ctaText: Este é um exemplo de CTA com **layout de texto** e cor de destaque (Highlight). O texto destacado aparece à esquerda e o conteúdo à direita.
     highlightedText: CTA Texto Simples
     link:
@@ -1434,9 +1429,9 @@ components:
     customBgColor: ''
     backgroundMedia: []
     overlay: ''
-    layout: media
-    mediaType: video
-    media: /uploads/cover_video_helicoptero.mp4
+    ctaMedia:
+      - type: ctaImage
+        src: /uploads/casa_afonso_sardinha.jpg
     ctaText: Este é um exemplo de CTA com **layout de mídia** — a imagem aparece à esquerda e o texto com botão à direita.
     highlightedText: ''
     link:
@@ -1458,9 +1453,6 @@ components:
       - type: backgroundImage
         imgSrc: /uploads/group-bg.png
     overlay: dark
-    layout: text
-    mediaType: ''
-    media: ''
     ctaText: Este é um exemplo de CTA com **imagem de background**, overlay escuro e texto claro sobreposto. Demonstra a integração com `backgroundMedia` e `overlay`.
     highlightedText: CTA com Background
     link:
@@ -1482,9 +1474,6 @@ components:
       - type: backgroundImage
         imgSrc: /uploads/casa_afonso_sardinha.jpg
     overlay: dark
-    layout: text
-    mediaType: image
-    media: ''
     ctaText: fsdfsdfsdfd fsdfsd sf sfdf fsdf fsd fsd sfdf sdf wesdvfwegmkadnfrrweuo weoin nwenuo rnweuo rnweruion vsdaeior iwenior ier dsffsdd
     highlightedText: Teste de CTA
     link: null

@@ -31,3 +31,4 @@ pnpm-debug.log*
 .claude/
 AGENTS.md
 PROJECT.md
+core

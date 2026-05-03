@@ -1540,15 +1540,6 @@ cta: &cta
       required: true
       hint: 'Enable/disable animations for this component'
       collapsed: true
-    - label: 'Layout'
-      name: 'layout'
-      widget: 'select'
-      options:
-        - { label: 'Texto', value: 'text' }
-        - { label: 'Mídia', value: 'media' }
-      default: 'text'
-      required: true
-      collapsed: true
     - label: 'Text Color'
       name: 'txtColor'
       widget: 'select'
@@ -1620,25 +1611,47 @@ cta: &cta
       options: ['dark', 'light']
       required: false
       collapsed: true
-    - label: 'Media Type'
-      name: 'mediaType'
-      widget: 'select'
-      options: ['image', 'video']
-      default: 'image'
+    - label: 'Add media'
+      name: 'ctaMedia'
       required: false
-      condition:
-        field: layout
-        value: media
+      widget: 'list'
+      max: 1
       collapsed: true
-    - label: 'Media'
-      name: 'media'
-      widget: 'image'
-      required: false
-      allow_multiple: false
-      condition:
-        field: layout
-        value: media
-      collapsed: true
+      types:
+        - label: 'Image'
+          name: 'ctaImage'
+          widget: 'object'
+          collapsed: true
+          fields:
+            - label: 'Image'
+              name: 'src'
+              widget: 'image'
+              required: false
+              allow_multiple: false
+              collapsed: true
+            - label: 'Or external URL'
+              name: 'externalUrl'
+              widget: 'string'
+              required: false
+              hint: 'URL externa (opcional, substitui a imagem acima)'
+              collapsed: true
+        - label: 'Video'
+          name: 'ctaVideo'
+          widget: 'object'
+          collapsed: true
+          fields:
+            - label: 'Video'
+              name: 'src'
+              widget: 'file'
+              allow_multiple: false
+              required: false
+              collapsed: true
+            - label: 'Or external URL'
+              name: 'externalUrl'
+              widget: 'string'
+              required: false
+              hint: 'URL externa (opcional, substitui o vídeo acima)'
+              collapsed: true
     - label: 'CTA Text'
       name: 'ctaText'
       widget: 'markdown'
@@ -1648,9 +1661,7 @@ cta: &cta
       name: 'highlightedText'
       widget: 'string'
       required: false
-      condition:
-        field: layout
-        value: text
+      hint: 'Texto destacado (exibido quando não há media)'
       collapsed: true
     - label: 'Link'
       name: 'link'

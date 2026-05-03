@@ -48,14 +48,15 @@ components:
       - type: backgroundImage
         imgSrc: /uploads/arqueological-remains_03.jpg
     overlay: ''
-    media: /uploads/arqueological-remains_01.jpg
+    ctaMedia:
+      - type: ctaImage
+        src: /uploads/arqueological-remains_01.jpg
     ctaText: MUDANÇA DE CONTEÚDO!
     highlightedText: TESTE!
     link:
       url: '#'
       target: _self
       text: OK
-    layout: media
   - type: Group
     id: novo
     shortTitle: novo

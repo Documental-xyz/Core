@@ -681,7 +681,6 @@ components:
     showInMenu: true
     animations: true
     id: CTAs
-    layout: text
     txtColor: Secondary
     customTxtColor: ''
     bgColor: Highlight

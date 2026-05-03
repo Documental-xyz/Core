@@ -1,5 +1,4 @@
 ---
-import Image from "astro/components/Image.astro";
 import Text from "./Text.astro";
 import Button from "./Button.astro";
 import Group from "./Group.astro";
@@ -45,7 +44,7 @@ const {
         {
           layout === "media" ? (
             mediaType === "image" ? (
-              <Image src={media} alt="" />
+              <img src={media} alt="" />
             ) : mediaType === "video" ? (
               <video autoplay muted loop>
                 <source src={media} />
