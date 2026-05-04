@@ -70,7 +70,7 @@ cta: &cta
       name: 'imgBg'
       widget: 'image'
       required: false
-      allow_multiple: false
+      multiple: false
       collapsed: true
     - label: 'Layout Type'
       name: 'layout'
@@ -94,7 +94,7 @@ cta: &cta
       name: 'media'
       widget: 'image'
       required: false
-      allow_multiple: false
+      multiple: false
       condition:
         field: layout
         value: media

@@ -14,13 +14,13 @@ compare: &compare
       name: 'imageLeft'
       widget: 'image'
       required: true
-      allow_multiple: false
+      multiple: false
       collapsed: true
     - label: 'Image Right'
       name: 'imageRight'
       widget: 'image'
       required: true
-      allow_multiple: false
+      multiple: false
       collapsed: true
     - label: 'Caption'
       name: 'caption'

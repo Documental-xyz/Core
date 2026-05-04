@@ -5,8 +5,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Content Manager</title>
 
-    <!-- Sveltia (versão fixa 0.92.4) -->
-    <script src="https://unpkg.com/@sveltia/cms@0.92.4/dist/sveltia-cms.js" defer></script>
+    <!-- Patch: forcar showDirectoryPicker com mode readwrite -->
+    <script>
+      const _showDirectoryPicker = window.showDirectoryPicker;
+      window.showDirectoryPicker = (options = {}) =>
+        _showDirectoryPicker.call(window, { ...options, mode: 'readwrite' });
+    </script>
+
+    <!-- Sveltia CMS -->
+    <script src="https://unpkg.com/@sveltia/cms@0.158.1/dist/sveltia-cms.js" defer></script>
   </head>
 
   <body>

@@ -98,7 +98,7 @@ cta: &cta
               name: 'imgSrc'
               widget: 'image'
               required: false
-              allow_multiple: false
+              multiple: false
               collapsed: true
         - label: 'Video'
           name: 'backgroundVideo'
@@ -108,7 +108,7 @@ cta: &cta
             - label: 'Video'
               name: 'videoSrc'
               widget: 'file'
-              allow_multiple: false
+              multiple: false
               required: false
               collapsed: true
     - label: 'Overlay'
@@ -133,7 +133,7 @@ cta: &cta
               name: 'src'
               widget: 'image'
               required: false
-              allow_multiple: false
+              multiple: false
               collapsed: true
             - label: 'Or external URL'
               name: 'externalUrl'
@@ -149,7 +149,7 @@ cta: &cta
             - label: 'Video'
               name: 'src'
               widget: 'file'
-              allow_multiple: false
+              multiple: false
               required: false
               collapsed: true
             - label: 'Or external URL'
