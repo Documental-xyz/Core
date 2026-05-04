@@ -963,9 +963,9 @@ components:
           ###### Fonte: Heading 6 _ Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium
 
           Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.
-    layout: default
     columnAlign: left
     floatingText: true
+    layout: default
   - type: Map
     id: Mapa 2
     shortTitle: Mapa 2
@@ -1474,8 +1474,11 @@ components:
       - type: backgroundImage
         imgSrc: /uploads/casa_afonso_sardinha.jpg
     overlay: dark
+    ctaMedia:
+      - type: ctaImage
+        src: /uploads/2013_01_10_ISA.jpg
+        externalUrl: ''
     ctaText: fsdfsdfsdfd fsdfsd sf sfdf fsdf fsd fsd sfdf sdf wesdvfwegmkadnfrrweuo weoin nwenuo rnweuo rnweruion vsdaeior iwenior ier dsffsdd
-    highlightedText: Teste de CTA
+    highlightedText: Teste de CTA2
     link: null
 ---
-

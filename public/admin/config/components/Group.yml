@@ -98,7 +98,7 @@ group: &group
               name: 'imgSrc'
               widget: 'image'
               required: false
-              allow_multiple: false
+              multiple: false
               collapsed: true
         - label: 'Video'
           name: 'backgroundVideo'
@@ -108,7 +108,7 @@ group: &group
             - label: 'Video'
               name: 'videoSrc'
               widget: 'file'
-              allow_multiple: false
+              multiple: false
               required: false
               collapsed: true
     - label: 'Overlay'
