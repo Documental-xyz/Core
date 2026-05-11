@@ -10,7 +10,7 @@ timelineBullet: &timelineBullet
       widget: 'hidden'
       default: 'TimelineBullet'
       collapsed: true
-    - label: 'Text'
+    - label: 'Title'
       name: 'text'
       widget: 'string'
       required: false
