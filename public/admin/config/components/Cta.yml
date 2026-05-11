@@ -136,7 +136,7 @@ cta: &cta
         field: layout
         value: media
       collapsed: true
-    - label: 'Media'
+    - label: 'Add CTA Media'
       name: 'media'
       widget: 'image'
       required: false
@@ -150,10 +150,11 @@ cta: &cta
       widget: 'markdown'
       required: false
       collapsed: true
-    - label: 'Highlighted Text'
+    - label: 'Add Highlighted Text'
       name: 'highlightedText'
       widget: 'string'
       required: false
+      hint: 'highlighted text shown when no media is uploaded'
       condition:
         field: layout
         value: text
