@@ -29,12 +29,14 @@ columnSticky: &columnSticky
       widget: 'boolean'
       required: false
       default: false
+      hint: 'enable to add spacing to the top of the component'
       collapsed: true
     - label: 'Padding Bottom'
       name: 'paddingBottom'
       widget: 'boolean'
       required: false
       default: false
+      hint: 'enable to add spacing to the bottom of the component'
       collapsed: true
     - label: 'Layout'
       name: 'layout'
