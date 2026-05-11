@@ -14,6 +14,7 @@ gallery: &gallery
       name: 'uniqid'
       widget: 'string'
       required: true
+      hint: 'Gallery identifier name. Must be unique for each gallery component'
       collapsed: true
     - label: 'Description'
       name: 'description'
