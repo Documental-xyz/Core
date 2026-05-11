@@ -20,13 +20,13 @@ group: &group
       name: 'shortTitle'
       widget: 'string'
       required: true
-      hint: 'Component title. This is the name that will appear in the menu if enabled.'
+      hint: 'Component short title.'
       collapsed: true
-    - label: 'Long Title'
+    - label: 'Title'
       name: 'longTitle'
       widget: 'string'
       required: false
-      hint: 'Título longo usado como label no menu (opcional)'
+      hint: 'Component title. This is the name that will appear in the menu if enabled'
       collapsed: true
     - label: 'Description'
       name: 'description'
