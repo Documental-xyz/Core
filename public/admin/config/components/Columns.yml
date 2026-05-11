@@ -13,11 +13,13 @@ columns: &columns
       name: paddingTop
       widget: boolean
       default: false
+      hint: 'enable to add spacing to the top of the component'
       collapsed: true
     - label: 'Padding Bottom'
       name: paddingBottom
       widget: boolean
       default: false
+      hint: 'enable to add spacing to the bottom of the component'
       collapsed: true
     - label: 'Invert on Mobile'
       name: invertOnMobile
