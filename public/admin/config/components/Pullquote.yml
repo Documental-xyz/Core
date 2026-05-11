@@ -29,7 +29,7 @@ pullquote: &pullquote
       widget: 'markdown'
       required: false
       collapsed: true
-    - label: 'Byline'
+    - label: 'Signature'
       name: 'byline'
       widget: 'string'
       required: false
