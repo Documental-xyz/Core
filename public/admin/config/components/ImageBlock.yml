@@ -1,5 +1,5 @@
 imageBlock: &imageBlock
-  label: 'Image Block'
+  label: 'Image'
   name: 'ImageBlock'
   widget: 'object'
   summary: '{{fields.src}}'
