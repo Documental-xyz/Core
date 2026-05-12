@@ -115,7 +115,9 @@ group: &group
     - label: 'Overlay'
       name: 'overlay'
       widget: 'select'
-      options: ['dark', 'light']
+      options: 
+        - { label: 'Dark', value: 'dark' }
+        - { label: 'Light', value: 'light' }
       required: false
       collapsed: true
     - label: 'Components'
