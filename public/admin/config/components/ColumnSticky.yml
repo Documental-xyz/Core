@@ -41,7 +41,9 @@ columnSticky: &columnSticky
     - label: 'Layout'
       name: 'layout'
       widget: 'select'
-      options: ['text-bigger', 'title-bottom']
+      options: 
+        - { label: 'Text-Bigger', value: 'text-bigger' }
+        - { label: 'Title-Bottom', value: 'title-bottom' }
       default: 'text-bigger'
       collapsed: true
     - label: 'Title'
