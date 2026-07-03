@@ -1,6 +1,6 @@
 ---
-title: Home
-slug: home
+title: Home Em Construção
+slug: home_old
 pageSettings:
   language: pt-BR
   link_pt_br: /home
@@ -97,11 +97,11 @@ components:
               Seu objetivo é apoiar investigações baseadas em dados sobre violações de direitos humanos, territoriais e ambientais, causadas pelo Estado e por corporações, para fins de advocacia e reparação histórica.
             txtColor: ''
             bgColor: ''
-            customTxtColor: ''
             customBgColor: ''
-        customTxtColor: ''
-        customBgColor: ''
+            customTxtColor: ''
         body: ''
+        customBgColor: ''
+        customTxtColor: ''
     layout: default
   - type: Group
     id: group_2
@@ -131,14 +131,14 @@ components:
                 Em um contexto de crescente proliferação midiática e novas tecnologias de produção e disseminação de fake news, a visibilização espacial da violência e a composição de fragmentos de informações em um conjunto verificado e referenciado de dados se torna cada vez mais importante para a compreensão de sua dimensão e consequências. Neste sentido, a plataforma Documental busca contribuir para a construção de uma capacidade civil de investigação, de resposta e de defesa de casos de violações de direitos, com o objetivo de promover o concernimento e o debate públicos sobre justiça social e ambiental.
               txtColor: ''
               bgColor: ''
-              customTxtColor: ''
               customBgColor: ''
+              customTxtColor: ''
         column2:
           components:
             - type: Spacer
               desktop: 0px
-    backgroundImage: ''
     layout: default
+    backgroundImage: ''
   - type: Group
     id: group_3
     shortTitle: group_3
@@ -164,8 +164,8 @@ components:
               content: '### COMO FUNCIONA A DOCUMENTAL?'
               txtColor: ''
               bgColor: ''
-              customTxtColor: ''
               customBgColor: ''
+              customTxtColor: ''
         column2:
           components:
             - type: Timeline
@@ -215,8 +215,8 @@ components:
               content: '### ALGUMAS INVESTIGAÇÕES PUBLICADAS NA PLATAFORMA'
               txtColor: ''
               bgColor: ''
-              customTxtColor: ''
               customBgColor: ''
+              customTxtColor: ''
         column2:
           components:
             - type: Spacer
@@ -307,8 +307,8 @@ components:
               content: '**Documental.xyz** foi originalmente desenvolvida em 2019 pela agência **Autônoma** e pelo **MediaLab UFRJ**, em colaboração com a **Rede LAVITS**.'
               txtColor: ''
               bgColor: ''
-              customTxtColor: ''
               customBgColor: ''
+              customTxtColor: ''
             - type: LogosGroup
               logos:
                 - image: /uploads/autonoma-black-redim.png
@@ -343,4 +343,3 @@ components:
                 Back end e documentação: **Thiago Paixão**
     layout: default
 ---
-

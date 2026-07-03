@@ -80,12 +80,37 @@ components:
               hasDropCap: false
               content: '# UMA PLATAFORMA DE CÓDIGO ABERTO E CUSTOMIZÁVEL PARA A CRIAÇÃO E PUBLICAÇÃO DE NARRATIVAS CARTOGRÁFICAS MULTIMÍDIA.'
             - type: Spacer
+              desktop: 50px
+              tablet: ''
+              mobile: ''
+            - type: Text
+              hasDropCap: false
+              content: '#### A **Documental** apoia investigações baseadas em dados geoespaciais sobre violações de direitos humanos, territoriais e ambientais, para fins de advocacia e reparação histórica.'
+            - type: Spacer
+              desktop: 50px
+              tablet: ''
+              mobile: ''
+            - type: Button
+              link:
+                url: https://github.com/Documental-xyz/Documental/releases
+                target: _blank
+                text: Faça o Download
+              icon: <span class="material-symbols-outlined"> download</span>
+              size: ''
+            - type: Button
+              link:
+                url: '#'
+                target: _blank
+                text: Guia de Instalação e Uso
+              icon: <span class="material-symbols-outlined"> book_4 </span>
+              size: ''
+            - type: Spacer
               desktop: 200px
               tablet: ''
               mobile: ''
   - type: Group
-    id: O que a plataforma faz?
-    shortTitle: O que a plataforma faz?
+    id: oque
+    shortTitle: Por que usar a Documental?
     longTitle: ''
     description: ''
     showInMenu: false
@@ -106,19 +131,55 @@ components:
           components:
             - type: Text
               hasDropCap: false
-              content: '# O QUE A PLATAFORMA FAZ?'
+              content: '# POR QUE USAR A DOCUMENTAL?'
         column2:
           components:
             - type: Text
               hasDropCap: false
-              content: '### **Através de uma interface intuitiva e de fácil manipulação, Documental.xyz possibilita a combinação de diferentes conteúdos multimídia (texto, imagem, dados, áudio e vídeo) com mapeamento de dados, gerando narrativas cartográficas visualmente envolventes e interativas.**'
+              content: '### Organizar dados no espaço e no tempo traz força, clareza e credibilidade a uma investigação. Com uma interface intuitiva, a Documental combina código, imagem e cartografia para transformar conjuntos complexos de dados – textos, fotos, vídeos, imagens de satélite e mapas – em narrativas visuais interativas, em que episódios de violência aparecem como evidências conectadas, e não como casos isolados.'
             - type: Spacer
               desktop: 50px
               tablet: ''
               mobile: ''
             - type: Text
               hasDropCap: false
-              content: '### Desenhada para atender a realidade de movimentos sociais e organizações de defesa de direitos, a plataforma é um aplicativo gratuito e seu uso não exige conhecimento técnico avançado.'
+              content: '### Desenhada para a realidade de movimentos sociais e organizações de defesa de direitos, a Documental é gratuita e não exige conhecimento técnico avançado: qualquer pessoa pode criar e publicar uma investigação visual, sem saber programar.'
+  - type: Group
+    id: Qual é o objetivo do projeto?
+    shortTitle: Qual é o objetivo do projeto?
+    longTitle: ''
+    description: ''
+    showInMenu: false
+    animations: true
+    txtColor: Secondary
+    customTxtColor: ''
+    bgColor: Highlight
+    customBgColor: ''
+    backgroundMedia: []
+    overlay: ''
+    components:
+      - type: Columns
+        paddingTop: true
+        paddingBottom: true
+        invertOnMobile: false
+        columnsAlign: 66-33
+        column1:
+          components:
+            - type: Text
+              hasDropCap: false
+              content: '###### A Documental foi pensada como instrumento de defesa de direitos humanos e ambientais: uma ferramenta open-source para que movimentos sociais, organizações civis e jornalistas documentem e comuniquem histórias locais a audiências globais, de forma envolvente e visualmente impactante.'
+            - type: Spacer
+              desktop: 50px
+              tablet: ''
+              mobile: ''
+            - type: Text
+              hasDropCap: false
+              content: '###### Em um cenário de excesso de informação e desinformação, reunir dados verificados e referenciados é cada vez mais importante. A plataforma busca fortalecer a capacidade da sociedade civil de investigar e documentar violações cometidas por Estados e corporações, empoderando atores locais para comunicarem suas histórias através de novas tecnologias de visualização e mapeamento de dados, e ampliando o debate públicos sobre justiça social e ambiental.'
+        column2:
+          components:
+            - type: Text
+              hasDropCap: false
+              content: '# **Qual o objetivo da plataforma?**'
   - type: Group
     id: O que a plataforma faz?_2
     shortTitle: O que a plataforma faz?_2
@@ -139,18 +200,15 @@ components:
         components:
           - type: Text
             hasDropCap: false
-            content: |-
-              # Documental.xyz é software livre: 
-
-              # não tem custos de instalação, atualização, e pode ser usado, copiado, estudado, modificado e redistribuído sem quaisquer restrições.
+            content: '### Documental é um software livre: não tem custos de instalação ou atualização, e pode ser usado, copiado, estudado, modificado e redistribuído sem quaisquer restrições.'
           - type: Spacer
             desktop: 50px
             tablet: ''
             mobile: ''
           - type: Button
             link:
-              url: https://www.advocacia.autonoma.xyz/
-              target: _self
+              url: https://github.com/Documental-xyz/Documental/releases
+              target: _blank
               text: Download
             icon: ''
             size: ''
@@ -177,24 +235,35 @@ components:
           components:
             - type: Text
               hasDropCap: false
-              content: |-
-                ##### Documental.xyz utiliza recursos de "scrollytelling" integrados com navegação em dados GIS.
-
-                ##### ######
+              content: '###### A Documental é uma plataforma aberta e totalmente customizável, que você adapta ao seu projeto sem precisar de programação avançada.'
             - type: Spacer
               desktop: 50px
               tablet: ''
               mobile: ''
             - type: Text
               hasDropCap: false
-              content: '##### "Scrollytelling" é uma técnica de web design para criar histórias multimídia que se desenrolam à medida que o usuário percorre a página. A plataforma oferece uma interface que permite a inclusão de conteúdos e o controle de dinâmica do "scrollytelling" combinados com a visualização de dados em mapas interativos.'
+              content: '###### "Scrollytelling" é uma técnica de web design para criar histórias multimídia que se desenrolam à medida que o usuário percorre a página. A plataforma oferece uma interface que permite a inclusão de conteúdos e o controle de dinâmica do "scrollytelling" combinados com a visualização de dados em mapas interativos.'
             - type: Spacer
               desktop: 50px
               tablet: ''
               mobile: ''
             - type: Text
               hasDropCap: false
-              content: '##### Através de parâmetros facilmente customizáveis na interface gráfica, a plataforma permite que o usuário tenha total controle sobre o design do conteúdo, oferecendo um recurso poderoso para a criação de narrativas visuais nos mais diversos formatos.'
+              content: '###### Ela combina **_scrollytelling_** – técnica de _web design_ para criar histórias multimídia que se desenrolam à medida que o usuário percorre a página – com a **navegação em dados GIS** (Sistema de Informação Geográfica). A interface permite montar os conteúdos e controlar a dinâmica do _scrollytelling_, integrados à visualização de dados em **mapas interativos,** construídos com o serviço de mapas online **Mapbox.**'
+            - type: Spacer
+              desktop: 50px
+              tablet: 50px
+              mobile: 50px
+            - type: Text
+              hasDropCap: false
+              content: '###### Com parâmetros facilmente customizáveis, a plataforma permite que o usuário tenha total controle sobre o design do conteúdo, oferecendo um recurso poderoso para criar narrativas visuais nos mais diversos formatos.'
+            - type: Spacer
+              desktop: 50px
+              tablet: 50px
+              mobile: 50px
+            - type: Text
+              hasDropCap: false
+              content: '###### A edição do conteúdo é feita p**or CMS moderno**, com uma interface aberta e intuitiva: publicar uma geo-história é tão simples quanto manter um blog. E, porque tudo é aberto, a plataforma pode ser usada, copiada, adaptada e melhorada pela própria comunidade de usuários.'
         column2:
           components:
             - type: Text
@@ -214,6 +283,84 @@ components:
     backgroundMedia: []
     overlay: ''
     components:
+      - type: Columns
+        paddingTop: true
+        paddingBottom: false
+        invertOnMobile: false
+        columnsAlign: 66-33
+        column1:
+          components:
+            - type: Text
+              hasDropCap: false
+              content: '# COMO COMEÇAR: 3 FORMAS DE PUBLICAR'
+            - type: Spacer
+              desktop: 50px
+              tablet: ''
+              mobile: ''
+            - type: Text
+              hasDropCap: false
+              content: 'O código da Documental está no GitHub. A partir dele, você escolhe como colocar sua história no ar:'
+            - type: Spacer
+              desktop: 150px
+              tablet: ''
+              mobile: ''
+            - type: Timeline
+              components:
+                - type: TimelineBullet
+                  text: GITHUB PAGES
+                  content: '##### Para histórias simples, você publica de forma gratuita usando o próprio GitHub Pages, sem precisar de servidor.'
+                - type: Spacer
+                  desktop: 50px
+                  tablet: ''
+                  mobile: ''
+                - type: TimelineBullet
+                  text: PRÓPRIO SERVIDOR
+                  content: '##### Copie o código do GitHub e instale a plataforma no servidor da sua organização, com controle total sobre os dados.'
+                - type: Spacer
+                  desktop: 50px
+                  tablet: ''
+                  mobile: ''
+                - type: TimelineBullet
+                  text: EM NOSSO SERVIDOR
+                  content: '##### Seu projeto pode utilizar a plataforma em nosso servidor, sem necessidade de instalação. Oferecemos infraestrutura e suporte técnico para a implementação e utilização da plataforma para movimentos sociais e entidades de defesa de direitos humanos e ambientais. Projetos podem ser submetidos através do email **contato@documental.xyz**'
+        column2:
+          components:
+            - type: Spacer
+              desktop: 150px
+              tablet: ''
+              mobile: ''
+            - type: Cards
+              cardsArr:
+                - Card:
+                    type: Card
+                    title: Github
+                    text: Código aberto e livre para uso. Você pode baixar o código em nosso repositório github e instalar Documental.xxyz em seu servidor
+                    link:
+                      url: https://www.advocacia.autonoma.xyz/
+                      target: ''
+                      customTarget: ''
+                      text: Acesse aqui
+                    icon: ''
+                - Card:
+                    type: Card
+                    title: Documentação
+                    text: Documentação completa sobre como instalar e usar o Documental.xyz. Baixe o código e verifique o repositório de documentação para obter informações detalhadas.
+                    link:
+                      url: https://www.advocacia.autonoma.xyz/
+                      target: ''
+                      customTarget: ''
+                      text: Acesse aqui
+                    icon: ''
+                - Card:
+                    type: Card
+                    title: Licença
+                    text: Aqui você encontra a licença de uso do Documental.xyz
+                    link:
+                      url: https://www.advocacia.autonoma.xyz/
+                      target: ''
+                      customTarget: ''
+                      text: Acesse aqui
+                    icon: ''
       - type: Columns
         paddingTop: false
         paddingBottom: false
@@ -277,123 +424,6 @@ components:
               alt: ''
             title: Nhanderekoa
             text: 'O projeto Arquiteturas da Reparação: São Paulo Terra Indígena foi desenvolvido no âmbito das instituições agência autônoma, Chão Coletivo e Plataforma Práticas Espaciais / Escola da Cidade, com apoio do CAU/SP. Ele apresenta uma cartografia da Terra Indígena Guarani do Jaraguá, em São Paulo, no momento de sua demarcação física entre julho e setembro de 2025. Esse território preserva um dos últimos fragmentos de Mata Atlântica na cidade, e carrega enorme importância ambiental, climática e espiritual para os povos Guarani, que habitam a região desde tempos imemoriais. Nhanderekoa – “onde nossa cultura vive”, nome dado ao conjunto de cartografias e análises mostradas aqui, combina análise de dados geoespaciais, cartografia participativa, entrevistas e arquivos históricos para traçar um panorama das práticas de defesa, cuidado e reparação das florestas do Jaraguá, ao mesmo tempo em que identifica ameaças atuais ao território. Nhanderekoa expressa o entendimento Guarani de que a floresta – com seus animais, plantas e espíritos – é parte inseparável do modo de vida, constituindo uma extensão de moradia compartilhada entre seres humanos e não humanos.'
-      - type: Columns
-        paddingTop: true
-        paddingBottom: false
-        invertOnMobile: false
-        columnsAlign: 66-33
-        column1:
-          components:
-            - type: Text
-              hasDropCap: false
-              content: '# COMO USAR A PLATAFORMA?'
-            - type: Spacer
-              desktop: 150px
-              tablet: ''
-              mobile: ''
-            - type: Timeline
-              components:
-                - type: TimelineBullet
-                  text: NO SEU SERVIDOR
-                  content: '##### Instale a plataforma em seu servidor usando o código base da Documental disponível no repositório do Github. A integração com o seu servidor requer conhecimento técnico avançado. A arquitetura de instalação está detalhada na documentação oficial da Documental.'
-                - type: Spacer
-                  desktop: 50px
-                  tablet: ''
-                  mobile: ''
-                - type: TimelineBullet
-                  text: EM NOSSO SERVIDOR
-                  content: |-
-                    Seu projeto pode utilizar a plataforma em nosso servidor, sem necessidade de instalação. Oferecemos infraestrutura e suporte técnico para a implementação e utilização da plataforma para movimentos sociais e entidades de defesa de direitos humanos e ambientais.
-
-                    Projetos podem ser submetidos através do email **contato@documental.xyz**
-                - type: Spacer
-                  desktop: 50px
-                  tablet: ''
-                  mobile: ''
-                - type: TimelineBullet
-                  text: NO GITHUB PAGES
-                  content: Documental.xyz roda diretamente no GitHub pages, sem necessidade de servidor.  O passo a passo para a clonagem do repositório base da Documental e publicação no GitHub pages está detalhado na documentação oficial da Documental.
-        column2:
-          components:
-            - type: Spacer
-              desktop: 150px
-              tablet: ''
-              mobile: ''
-            - type: Cards
-              cardsArr:
-                - Card:
-                    type: Card
-                    title: Github
-                    text: Código aberto e livre para uso. Você pode baixar o código em nosso repositório github e instalar Documental.xxyz em seu servidor
-                    link:
-                      url: https://www.advocacia.autonoma.xyz/
-                      target: ''
-                      customTarget: ''
-                      text: Acesse aqui
-                    icon: ''
-                - Card:
-                    type: Card
-                    title: Documentação
-                    text: Documentação completa sobre como instalar e usar o Documental.xyz. Baixe o código e verifique o repositório de documentação para obter informações detalhadas.
-                    link:
-                      url: https://www.advocacia.autonoma.xyz/
-                      target: ''
-                      customTarget: ''
-                      text: Acesse aqui
-                    icon: ''
-                - Card:
-                    type: Card
-                    title: Licença
-                    text: Aqui você encontra a licença de uso do Documental.xyz
-                    link:
-                      url: https://www.advocacia.autonoma.xyz/
-                      target: ''
-                      customTarget: ''
-                      text: Acesse aqui
-                    icon: ''
-  - type: Group
-    id: Qual é o objetivo do projeto?
-    shortTitle: Qual é o objetivo do projeto?
-    longTitle: ''
-    description: ''
-    showInMenu: false
-    animations: true
-    txtColor: Secondary
-    customTxtColor: ''
-    bgColor: Highlight
-    customBgColor: ''
-    backgroundMedia: []
-    overlay: ''
-    components:
-      - type: Columns
-        paddingTop: true
-        paddingBottom: true
-        invertOnMobile: false
-        columnsAlign: 66-33
-        column1:
-          components:
-            - type: Text
-              hasDropCap: false
-              content: '###### Documental.xyz foi originalmente pensada e desenhada como instrumento de defesa de direitos humanos e ambientais.'
-            - type: Spacer
-              desktop: 50px
-              tablet: ''
-              mobile: ''
-            - type: Text
-              hasDropCap: false
-              content: '###### O objetivo da plataforma é oferecer uma ferramenta open-source para movimentos sociais, organizações civis e jornalistas documentarem e comunicarem histórias locais para audiências globais de forma socialmente envolvente e visualmente impactante.'
-            - type: Spacer
-              desktop: 50px
-              tablet: ''
-              mobile: ''
-            - type: Text
-              hasDropCap: false
-              content: '###### A plataforma busca contribuir para a construção da capacidade da sociedade civil em investigar e documentar violações de direitos cometidas por estados e corporações, empoderando atores locais para comunicarem suas histórias através de novas tecnologias de visualização e mapeamento de dados, ao mesmo tempo que ampliando o debate público sobre justiça social e ambiental.'
-        column2:
-          components:
-            - type: Text
-              hasDropCap: false
-              content: '# Qual é o objetivo do projeto?'
   - type: Group
     id: Download e Documentação
     shortTitle: Download e Documentação
@@ -469,14 +499,31 @@ components:
           components:
             - type: Text
               hasDropCap: false
-              content: '### Arquitetura técnica do back end'
+              content: '### Faça parte da Comunidade'
             - type: Spacer
               desktop: 50px
               tablet: ''
               mobile: ''
             - type: Text
               hasDropCap: false
-              content: Documental.xyz é baseada na integração de recursos do sistema de publicação Sveltia com o serviço de mapas online Mapbox. A plataforma é rodada através de uma arquitetura leve e facilmente compreensíve. Esta arquitetura é ampliada para outras possíveis utilidades, tornando-se o projeto BASE Document.you
+              content: 'A Documental é mantida por uma comunidade aberta. Participe: tire dúvidas, troque experiências e formas de fazer, faça sugestão de melhorias, traduza ou contribua com o desenvolvimento.'
+            - type: Spacer
+              desktop: 50px
+              tablet: ''
+              mobile: ''
+              link:
+                url: https://github.com/Documental-xyz/Documental/discussions/landing
+                target: _self
+                text: Comunidade
+              icon: ''
+              size: ''
+            - type: Button
+              link:
+                url: https://github.com/Documental-xyz/Documental/discussions/landing
+                target: _self
+                text: Comunidade
+              icon: ''
+              size: ''
         column2:
           components: []
   - type: Group
@@ -543,4 +590,3 @@ components:
 
                 Implementação e documentação:**&#32;Julia Veras**
 ---
-

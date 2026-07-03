@@ -1,6 +1,6 @@
 ---
-title: Teste Layout
-slug: layout
+title: Bem Vindo
+slug: home
 pageSettings:
   language: pt-BR
   link_pt_br: /layout
@@ -173,8 +173,8 @@ components:
     bgColor: Highlight
     customBgColor: ''
     backgroundMedia:
-      - type: backgroundVideo
-        videoSrc: https://documental.xyz/assets/main/expulsion/expulsiones-intro-low.mp4
+      - type: backgroundImage
+        imgSrc: /uploads/territorios-de-excecao-azul.png
     overlay: dark
     components:
       - type: ColumnSticky
@@ -183,18 +183,15 @@ components:
         paddingTop: true
         paddingBottom: true
         layout: text-bigger
-        title: 'BLOCO: COLUMN STICKY _ LAYOUT: TEXT-BIGGER!!@'
+        title: Bem vindo à Documental
         components:
-          - type: Spacer
-            desktop: 800px
-            tablet: 800px
-            mobile: 800px
           - type: Text
             hasDropCap: false
             content: |-
-              Bloco: Column Sticky_Background: Video_Overlay: Dark_Padding: Top + Bottom_Bloco Spacer: 800px_Bloco: Text_Content_Fonte: Paragraph_Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt.
+              ### Sua plataforma de livre para a criação de geo-narrativas. 
 
-              Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt_Bloco Spacer: 150px.
+
+              ##### Para começar a trabalhar em seu projeto, selecione o modo ✏️ **Editor** ou 🔀 **Dividido** na parte superior, em seguida, clique em **“Work with local repository”** para escolher a pasta do projeto em seu computador. O caminho da pasta atualmente selecionada é exibido na barra inferior da janela, à esquerda, permitindo que você confirme facilmente o repositório em uso antes de iniciar a edição e a organização do conteúdo.
           - type: Spacer
             desktop: 100px
             tablet: 100px
