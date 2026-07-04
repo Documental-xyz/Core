@@ -2,7 +2,7 @@
   "name": "@documental-xyz/core",
   "type": "module",
   "version": "0.1.0",
-  "description": "Astro integration for Documental — geo-narrative static sites with Sveltia CMS",
+  "description": "Documental Core — geo-narrative static sites with CMS",
   "license": "MIT",
   "repository": {
     "type": "git",
