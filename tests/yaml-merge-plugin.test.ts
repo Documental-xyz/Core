@@ -252,6 +252,29 @@ public_folder: \${PUBLIC_FOLDER}
     expect(out).not.toMatch(/\$\{[A-Z_]+\}/);
   });
 
+  it('removes entire YAML line when placeholder resolves to empty string (e.g. AUTH_BASE_URL unset)', async () => {
+    fixture({
+      mainTemplate: `backend:
+  name: github
+  repo: \${REPO}
+  base_url: \${AUTH_BASE_URL}
+`,
+      componentsOrder: [],
+    });
+    await runPlugin({
+      repo: 'octo/cat',
+      // authBaseUrl deliberately omitted (defaults to '')
+    });
+    const out = fs.readFileSync(
+      path.join(tmpRoot, 'public/admin/config.yml'),
+      'utf8'
+    );
+    // The line `base_url: ` must NOT appear (would cause Sveltia CMS crash).
+    expect(out).not.toContain('base_url:');
+    // Other substitutions should still work.
+    expect(out).toContain('repo: octo/cat');
+  });
+
   it("uses option defaults: branch=main, mediaFolder=public/uploads, publicFolder=uploads", async () => {
     fixture({
       mainTemplate: `backend:

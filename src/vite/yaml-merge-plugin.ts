@@ -107,9 +107,27 @@ export function substitutePlaceholders(
   text: string,
   values: Record<string, string>
 ): string {
-  return text.replace(/\$\{([A-Z_][A-Z0-9_]*)\}/g, (match, name) =>
+  // First pass: remove entire lines where a placeholder is the sole value
+  // and the placeholder resolves to empty string (e.g. `base_url: ${AUTH_BASE_URL}`
+  // when AUTH_BASE_URL is unset → the line becomes `base_url: ` which YAML
+  // interprets as `null`, crashing Sveltia CMS).
+  let result = text.replace(
+    /^([ \t]*\w+:[\t ]*)\$\{([A-Z_][A-Z0-9_]*)\}[\t ]*$/gm,
+    (match, prefix, name) => {
+      if (
+        Object.prototype.hasOwnProperty.call(values, name) &&
+        values[name] === ''
+      ) {
+        return ''; // Remove the line entirely
+      }
+      return match; // Leave it for the generic substitution below
+    }
+  );
+  // Second pass: substitute all remaining placeholders normally
+  result = result.replace(/\$\{([A-Z_][A-Z0-9_]*)\}/g, (match, name) =>
     Object.prototype.hasOwnProperty.call(values, name) ? values[name] : match
   );
+  return result;
 }
 
 /** Read a file, returning empty string if it does not exist. */

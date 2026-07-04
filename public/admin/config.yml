@@ -2,7 +2,7 @@ backend:
   name: github
   repo: documental-xyz/Documental
   branch: main
-  base_url: 
+
 
 media_libraries:
   default:
