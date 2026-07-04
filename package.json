@@ -1,27 +1,69 @@
 {
-  "name": "",
+  "name": "@documental-xyz/core",
   "type": "module",
-  "version": "0.0.1",
+  "version": "0.1.0",
+  "description": "Astro integration for Documental — geo-narrative static sites with Sveltia CMS",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Documental-xyz/Core"
+  },
+  "keywords": [
+    "astro-component",
+    "astro-integration",
+    "withastro",
+    "sveltia-cms",
+    "geo-narratives"
+  ],
+  "main": "./integration.ts",
+  "exports": {
+    ".": "./integration.ts",
+    "./integration": "./integration.ts",
+    "./loader": "./src/content/loader.ts",
+    "./admin.astro": "./src/admin/admin.astro",
+    "./pages/*": "./src/routes/*",
+    "./components/*": "./src/components/*",
+    "./layouts/*": "./src/layouts/*",
+    "./styles/*": "./src/assets/styles/*",
+    "./scripts/*": "./src/assets/scripts/*",
+    "./*": "./*",
+    "./node_modules/*": "./node_modules/*",
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "src/",
+    "integration.ts",
+    "README.md"
+  ],
+  "publishConfig": {
+    "access": "public",
+    "provenance": true
+  },
   "scripts": {
     "dev": "astro dev",
     "start": "astro dev",
-    "build": "node build-config.js && astro build",
+    "build": "astro build",
     "preview": "astro preview",
     "astro": "astro",
-    "serve": "serve dist -l 3000 --single"
+    "serve": "serve dist -l 3000 --single",
+    "test": "vitest run"
   },
   "dependencies": {
-    "astro": "^4.16.8",
     "astro-icon": "^0.8.1",
     "gray-matter": "^4.0.3",
     "marked": ">=5.0.2",
     "marked-gfm-heading-id": ">=3.1.2",
     "marked-mangle": ">=1.1.6",
+    "sass-embedded": "^1.86.3",
     "sass": "^1.80.5",
     "svelte": ">=4.0.0",
     "swiper": "^11.1.14"
   },
+  "peerDependencies": {
+    "astro": "^5.0.0"
+  },
   "devDependencies": {
+    "@playwright/test": "^1.61.1",
     "@typescript-eslint/eslint-plugin": "^8.16.0",
     "@typescript-eslint/parser": "^8.16.0",
     "astro-eslint-parser": "^1.1.0",
@@ -35,6 +77,7 @@
     "stylelint": "^16.11.0",
     "stylelint-config-standard": "^36.0.1",
     "vite-plugin-yaml": "^1.0.5",
+    "vitest": "^4.1.9",
     "yaml": "^2.6.1"
   }
 }

@@ -1,4 +1,4 @@
-import { defineCollection, z } from 'astro:content';
+import { z } from 'astro:content';
 import { marked } from 'marked';
 
 // Função para processar markdown e HTML
@@ -137,15 +137,7 @@ const mapboxSchema = z.object({
       lng: z.union([z.string(), z.number()]).transform(stringToNumber),
       lat: z.union([z.string(), z.number()]).transform(stringToNumber),
     })
-    .optional()
-    .transform((val, ctx) => {
-      // Se centerLng/centerLat existem, usar eles; senão usar center
-      const parent = ctx.path[0] as any;
-      if (parent?.centerLng !== undefined && parent?.centerLat !== undefined) {
-        return { lng: parent.centerLng, lat: parent.centerLat };
-      }
-      return val;
-    }),
+    .optional(),
   zoom: z.union([z.string(), z.number()]).transform(stringToNumber).optional(),
   bearing: z
     .union([z.string(), z.number()])
@@ -177,18 +169,7 @@ const mapboxSchema = z.object({
             lng: z.union([z.string(), z.number()]).transform(stringToNumber),
             lat: z.union([z.string(), z.number()]).transform(stringToNumber),
           })
-          .optional()
-          .transform((val, ctx) => {
-            // Se centerLng/centerLat existem, usar eles; senão usar center
-            const parent = ctx.path[0] as any;
-            if (
-              parent?.centerLng !== undefined &&
-              parent?.centerLat !== undefined
-            ) {
-              return { lng: parent.centerLng, lat: parent.centerLat };
-            }
-            return val;
-          }),
+          .optional(),
         duration: z
           .union([z.string(), z.number()])
           .transform(stringToNumber)
@@ -452,80 +433,62 @@ const componentSchema = z.object({
   imageRight: z.string().optional(),
 });
 
-const pagesCollection = defineCollection({
-  type: 'content',
-  schema: z.object({
-    title: z.string().optional(),
-    mapbox: mapboxSchema.optional(),
-    components: z.array(componentSchema).optional(),
-    pageSettings: z
-      .object({
-        type: z.string().optional(),
-        language: z.enum(['pt-BR', 'en', 'es']).optional(),
-        link_pt_br: z.string().optional(),
-        link_en: z.string().optional(),
-        link_es: z.string().optional(),
-        direction: z.enum(['left', 'right']).optional(),
-        seoTitle: z.string().optional(),
-        seoDescription: z.string().optional(),
-        seoKeywords: z.array(z.object({ keyword: z.string() })).optional(),
-        seoImage: z.string().optional(),
-        animations: z.enum(['enable_all', 'disable_all', 'custom']).optional().default('enable_all'),
-      })
-      .optional(),
-    pageTheme: z
-      .object({
-        primaryColor: z.string().optional(),
-        secondaryColor: z.string().optional(),
-        highlightColor: z.string().optional(),
-        auxiliaryColor: z.string().optional(),
-        displayFont: z.string().optional(),
-        textFont: z.string().optional(),
-        spacingPatterns: z
-          .array(
-            z.object({
-              name: z.string(),
-              mobile: z.string(),
-              tablet: z.string(),
-              desktop: z.string(),
-            })
-          )
-          .optional(),
-      })
-      .optional(),
-  }),
+export const pagesSchema = z.object({
+  title: z.string().optional(),
+  mapbox: mapboxSchema.optional(),
+  components: z.array(componentSchema).optional(),
+  pageSettings: z
+    .object({
+      type: z.string().optional(),
+      language: z.enum(['pt-BR', 'en', 'es']).optional(),
+      link_pt_br: z.string().optional(),
+      link_en: z.string().optional(),
+      link_es: z.string().optional(),
+      direction: z.enum(['left', 'right']).optional(),
+      seoTitle: z.string().optional(),
+      seoDescription: z.string().optional(),
+      seoKeywords: z.array(z.object({ keyword: z.string() })).optional(),
+      seoImage: z.string().optional(),
+      animations: z.enum(['enable_all', 'disable_all', 'custom']).optional().default('enable_all'),
+    })
+    .optional(),
+  pageTheme: z
+    .object({
+      primaryColor: z.string().optional(),
+      secondaryColor: z.string().optional(),
+      highlightColor: z.string().optional(),
+      auxiliaryColor: z.string().optional(),
+      displayFont: z.string().optional(),
+      textFont: z.string().optional(),
+      spacingPatterns: z
+        .array(
+          z.object({
+            name: z.string(),
+            mobile: z.string(),
+            tablet: z.string(),
+            desktop: z.string(),
+          })
+        )
+        .optional(),
+    })
+    .optional(),
 });
 
-// Schema para Blog
-const blogSchema = z.object({
-  title: z.string(),
-  date: z.date(),
-  coverImage: z.string(),
-  description: z.string(),
-  tags: z.array(z.string()),
-  author: z.string(),
-});
-
-// Schema para GeoStories
-const geoStorySchema = z.object({
-  title: z.string(),
-  date: z.date(),
-  coverImage: z.string(),
-  location: z.object({
-    lat: z.number(),
-    lng: z.number(),
-  }),
-  description: z.string(),
-});
-
-export const collections = {
-  pages: pagesCollection,
-  blog: defineCollection({
-    type: 'content',
-    schema: blogSchema,
-  }),
-  geostorys: defineCollection({
-    type: 'content',
-    schema: geoStorySchema,
-  }),
+export {
+  processMarkdown,
+  stringToNumber,
+  processLayersText,
+  linkSchema,
+  cardCallSchema,
+  cardSchema,
+  logoSchema,
+  chartBarSchema,
+  chartPercentageBarSchema,
+  mapBoxLayerSchema,
+  mapboxSchema,
+  componentSchema,
+  bigNumberItemSchema,
+  slideSchema,
+  galleryImageSchema,
+  timelineBulletSchema,
 };

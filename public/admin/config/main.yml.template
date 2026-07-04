@@ -1,0 +1,13 @@
+backend:
+  name: github
+  repo: ${REPO}
+  branch: ${BRANCH}
+  base_url: ${AUTH_BASE_URL}
+
+media_libraries:
+  default:
+    config:
+      slugify_filename: true
+
+media_folder: ${MEDIA_FOLDER}
+public_folder: ${PUBLIC_FOLDER}

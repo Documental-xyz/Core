@@ -1,14 +1,15 @@
 ---
 import PageLayout from '../layouts/pages/PageLayout.astro';
+import { PAGES_COLLECTION } from '../lib/collections';
 
 const { slug } = Astro.params;
 
 export async function getStaticPaths() {
   const { getCollection } = await import('astro:content');
-  const pages = await getCollection('pages');
+  const pages = await getCollection(PAGES_COLLECTION);
 
   return pages.map((page) => ({
-    params: { slug: page.slug },
+    params: { slug: page.id },
   }));
 }
 ---
