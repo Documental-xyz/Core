@@ -1,17 +1,16 @@
 backend:
   name: github
-  repo: thiagopaixao/astro_sveltia
+  repo: documental-xyz/Documental
   branch: main
-  base_url: https://sveltia-cms-auth.tap-647.workers.dev
+  base_url: 
 
 media_libraries:
   default:
     config:
       slugify_filename: true
 
-media_folder: 'public/uploads'
-public_folder: 'uploads'
-
+media_folder: public/uploads
+public_folder: uploads
 pageSettings: &pageSettings
   label: 'Page Settings'
   name: 'pageSettings'
@@ -81,7 +80,6 @@ pageSettings: &pageSettings
       widget: 'image'
       required: false
       collapsed: true
-
 pageTheme: &pageTheme
   label: 'Page Theme'
   name: 'pageTheme'
@@ -153,7 +151,6 @@ pageTheme: &pageTheme
           widget: 'string'
           required: true
           collapsed: true
-
 text: &text
   label: 'Text'
   name: 'Text'
@@ -176,7 +173,6 @@ text: &text
       widget: 'markdown'
       required: false
       collapsed: true
-
 button: &button
   label: 'Button'
   name: 'Button'
@@ -226,7 +222,6 @@ button: &button
         - { label: 'Wide', value: 'wide' }
       required: false
       collapsed: true
-
 imageBlock: &imageBlock
   label: 'Image Block'
   name: 'ImageBlock'
@@ -260,7 +255,6 @@ imageBlock: &imageBlock
       widget: 'string'
       required: false
       collapsed: true
-
 videoEmbed: &videoEmbed
   label: 'Video Embed'
   name: 'VideoEmbed'
@@ -289,7 +283,6 @@ videoEmbed: &videoEmbed
       widget: 'string'
       required: false
       collapsed: true
-
 htmlEmbed: &htmlEmbed
   label: 'HTML Embed'
   name: 'HtmlEmbed'
@@ -320,7 +313,6 @@ htmlEmbed: &htmlEmbed
       widget: 'string'
       required: false
       collapsed: true
-
 chartBar: &chartBar
   label: 'Chart Bar'
   name: 'ChartBar'
@@ -377,7 +369,6 @@ chartBar: &chartBar
           max: 100
           step: 0.01
           collapsed: true
-
 chartPercentage: &chartPercentage
   label: 'Chart Percentage'
   name: 'ChartPercentage'
@@ -425,7 +416,6 @@ chartPercentage: &chartPercentage
           step: 0.01
           required: true
           collapsed: true
-
 bigNumbers: &bigNumbers
   label: 'Big Numbers'
   name: 'BigNumbers'
@@ -459,7 +449,6 @@ bigNumbers: &bigNumbers
           widget: 'string'
           required: false
           collapsed: true
-
 compare: &compare
   label: 'Compare'
   name: 'Compare'
@@ -489,7 +478,6 @@ compare: &compare
       widget: 'markdown'
       required: false
       collapsed: true
-
 mapBox: &mapBox
   label: 'MapBox'
   name: 'mapbox'
@@ -665,7 +653,6 @@ mapBox: &mapBox
               name: 'text'
               widget: 'string'
               required: false
-
 mapView: &mapView
   label: 'Map View'
   name: 'MapView'
@@ -698,7 +685,6 @@ mapView: &mapView
       enableAlpha: true
       allowInput: true
       collapsed: true
-
 spacer: &spacer
   label: 'Spacer'
   name: 'Spacer'
@@ -726,7 +712,6 @@ spacer: &spacer
       widget: 'string'
       required: false
       collapsed: true
-
 pullquote: &pullquote
   label: 'Pullquote'
   name: 'Pullquote'
@@ -763,7 +748,6 @@ pullquote: &pullquote
       widget: 'string'
       required: false
       collapsed: true
-
 gallery: &gallery
   label: 'Gallery'
   name: 'Gallery'
@@ -802,7 +786,6 @@ gallery: &gallery
           widget: 'markdown'
           required: false
           collapsed: true
-
 slider: &slider
   label: 'Slider'
   name: 'Slider'
@@ -831,7 +814,6 @@ slider: &slider
           widget: 'string'
           required: false
           collapsed: true
-
 logosGroup: &logosGroup
   label: 'Logos Group'
   name: 'LogosGroup'
@@ -882,7 +864,6 @@ logosGroup: &logosGroup
               widget: 'string'
               required: false
               collapsed: true
-
 timelineBullet: &timelineBullet
   label: 'Timeline Bullet'
   name: 'TimelineBullet'
@@ -905,7 +886,6 @@ timelineBullet: &timelineBullet
       widget: 'markdown'
       required: false
       collapsed: true
-
 card: &card
   label: 'Card'
   name: 'Card'
@@ -960,7 +940,6 @@ card: &card
       widget: 'string'
       required: false
       collapsed: true
-
 cardsCall: &cardsCall
   label: 'Cards Call'
   name: 'CardsCall'
@@ -1027,7 +1006,6 @@ cardsCall: &cardsCall
           widget: 'markdown'
           required: false
           collapsed: true
-
 timeline: &timeline
   label: 'Timeline'
   name: 'Timeline'
@@ -1055,7 +1033,6 @@ timeline: &timeline
         - *spacer
         - *pullquote
         - *card
-
 cards: &cards
   label: 'Cards'
   name: 'Cards'
@@ -1075,7 +1052,6 @@ cards: &cards
       collapsed: true
       fields:
         - *card
-
 innerColumns: &innerColumns
   label: 'Inner Columns'
   name: 'InnerColumns'
@@ -1137,7 +1113,6 @@ innerColumns: &innerColumns
             - *spacer
             - *gallery
             - *slider
-
 column: &column
   label: 'Column'
   name: 'Column'
@@ -1183,7 +1158,6 @@ column: &column
         - *button
         - *timeline
         - *innerColumns
-
 columns: &columns
   label: 'Columns'
   name: 'Columns'
@@ -1274,7 +1248,6 @@ columns: &columns
             - *button
             - *timeline
             - *compare
-
 columnSticky: &columnSticky
   label: 'Column Sticky'
   name: 'ColumnSticky'
@@ -1345,7 +1318,6 @@ columnSticky: &columnSticky
         - *slider
         - *cards
         - *timeline
-
 group: &group
   label: 'Group'
   name: 'Group'
@@ -1489,7 +1461,6 @@ group: &group
         - *slider
         - *bigNumbers
         - *timeline
-
 cta: &cta
   label: 'CTA'
   name: 'Cta'
@@ -1684,7 +1655,6 @@ cta: &cta
           widget: 'string'
           required: false
           collapsed: true
-
 map: &map
   label: 'Map'
   name: 'Map'
@@ -1779,7 +1749,6 @@ map: &map
         - *videoEmbed
         - *timeline
         - *button
-
 collections:
   - name: 'pages'
     label: 'Páginas'
@@ -1804,4 +1773,3 @@ collections:
           - *cta
           - *map
           - *spacer
-

@@ -1,6 +1,6 @@
 ---
 import "swiper/css";
-import Image from "astro/components/Image.astro";
+import { Image } from 'astro:assets';
 import Text from "./Text.astro";
 const { uniqid, description, images } = Astro.props;
 const amountLabel = `${images.length} imagens`; // prever que o termo "imagens" deve ser traduzido nas versões de outras línguas

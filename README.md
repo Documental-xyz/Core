@@ -390,6 +390,19 @@ npm run dev
 ### Inspiração e Base
 Baseado no trabalho original do **Documenta.xyz** e nas necessidades reais de organizações de direitos humanos.
 
+## Publishing
+
+To publish a new version of `@documental-xyz/core` to npm:
+
+1. Ensure `NPM_TOKEN` is set in GitHub repository secrets
+2. Update version in `package.json`
+3. Create and push a tag:
+   ```bash
+   git tag v0.1.0
+   git push --tags
+   ```
+3. The `publish.yml` workflow will run tests, build, and publish automatically
+
 ## 📄 Licença
 
 Este projeto está licenciado sob a **GPL 2.0 License** - veja o arquivo [LICENSE](LICENSE) para detalhes.

@@ -1,5 +1,6 @@
 ---
-import { getEntryBySlug } from 'astro:content';
+import { getEntry } from 'astro:content';
+import { PAGES_COLLECTION } from '../../lib/collections';
 
 import Layout from "./Layout.astro";
 import MapBox from '../../components/MapBox.astro';
@@ -33,7 +34,7 @@ import Menu from "../../components/Menu.astro";
 
 const { slug } = Astro.props;
 
-const entry = await getEntryBySlug('pages', slug);
+const entry = await getEntry(PAGES_COLLECTION, slug);
 if (!entry) {
   throw new Error(`Nenhuma entrada encontrada para "${slug}".`);
 }

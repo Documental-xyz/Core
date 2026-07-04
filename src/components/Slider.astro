@@ -1,7 +1,7 @@
 ---
 import "swiper/css";
 import "swiper/css/pagination";
-import Image from "astro/components/Image.astro";
+import { Image } from 'astro:assets';
 const { slides } = Astro.props;
 const id = Math.random().toString(36).slice(2, 11)
 ---

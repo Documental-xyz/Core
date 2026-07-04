@@ -10,7 +10,9 @@
 @mixin grrr($type: 'board', $start: 'full', $end: 'full', $offset: true, $config: $grrr-config, $prefix: false) {
 
 	// defining sass vars
-	$prefix: if( $prefix == false, map.get($map: $config, $key: 'name' ), $prefix);
+	@if $prefix == false {
+		$prefix: map.get($config, 'name');
+	}
 	$breakpoints: map.get($map: $config, $key: 'breakpoints');
 	$board-max: map.get($map: $config, $key: 'board-max');
 	$last_item: list.nth(map.values($breakpoints), -1);
@@ -121,7 +123,9 @@
 @mixin grrr-content($type: 'board', $content-start: 3, $content-end: 10, $config: $grrr-config, $prefix: false){
 
 	// defining sass vars
-	$prefix: if( $prefix == false, map.get($map: $config, $key: 'name' ), $prefix);
+	@if $prefix == false {
+		$prefix: map.get($config, 'name');
+	}
 	$breakpoints: map.get($map: $config, $key: 'breakpoints');
 	$board-max: map.get($map: $config, $key: 'board-max');
 	$last_item: list.nth(map.values($breakpoints), -1);
@@ -172,7 +176,12 @@
 		$grid-right: #{$grid-right} [offset-start board-full-end board-end];
 	}
 
-	$grid-margins: #{if($type=='fluid',var(--#{$prefix}-margin),minmax(var(--#{$prefix}-board-margin), var(--#{$prefix}-margin)))};
+	$grid-margins: null;
+	@if $type == 'fluid' {
+		$grid-margins: var(--#{$prefix}-margin);
+	} @else {
+		$grid-margins: minmax(var(--#{$prefix}-board-margin), var(--#{$prefix}-margin));
+	}
 
 	& {
 		display: grid;
@@ -213,11 +222,19 @@
 
 @mixin grrr-css-vars($type,$start,$end,$offset,$config,$prefix,$board-max,$board-max-w-margins){
 	&{
-		--#{$prefix}-board-size: #{if( $type =='board', $board-max, calc(100% - 2 * var(--#{$prefix}-margin)) )};
+		@if $type == 'board' {
+			--#{$prefix}-board-size: #{$board-max};
+		} @else {
+			--#{$prefix}-board-size: calc(100% - 2 * var(--#{$prefix}-margin));
+		}
 		--#{$prefix}-board-margin: calc((100% - var(--#{$prefix}-board-size)) * .5);
 		--#{$prefix}-col-size: calc((var(--#{$prefix}-board-size) - var(--#{$prefix}-total-gutters)) / var(--#{$prefix}-cols));
 		--#{$prefix}-col-width: var(--#{$prefix}-col-size);
-		--#{$prefix}-offset-out: #{if( $type=='board', var(--#{$prefix}-gutter), var(--#{$prefix}-margin) )};
+		@if $type == 'board' {
+			--#{$prefix}-offset-out: var(--#{$prefix}-gutter);
+		} @else {
+			--#{$prefix}-offset-out: var(--#{$prefix}-margin);
+		}
 		--#{$prefix}-total-gutters: calc((var(--#{$prefix}-cols) - 1) * var(--#{$prefix}-gutter));
 		--#{$prefix}-col-responsive-size: calc((100vw - var(--scrollbar-interface-width, 0px) - (2 * var(--#{$prefix}-margin)) - ((var(--#{$prefix}-cols) - 1) * var(--#{$prefix}-gutter))) / var(--#{$prefix}-cols));
 
@@ -250,8 +267,21 @@
 					}
 					@if( $cols != $prev-cols ){
 						--#{$prefix}-cols: #{$cols};
-						--#{$prefix}-out-left: #{if( $offset, if($start != 'full' and $start > 1, var(--#{$prefix}-gutter), var(--#{$prefix}-offset-out) ), 0px )};
-						--#{$prefix}-out-right: #{if( $offset, if($end != 'full' and $cols > $end, var(--#{$prefix}-gutter), var(--#{$prefix}-offset-out) ), 0px )};
+						@if $offset {
+							@if $start != 'full' and $start > 1 {
+								--#{$prefix}-out-left: var(--#{$prefix}-gutter);
+							} @else {
+								--#{$prefix}-out-left: var(--#{$prefix}-offset-out);
+							}
+							@if $end != 'full' and $cols > $end {
+								--#{$prefix}-out-right: var(--#{$prefix}-gutter);
+							} @else {
+								--#{$prefix}-out-right: var(--#{$prefix}-offset-out);
+							}
+						} @else {
+							--#{$prefix}-out-left: 0px;
+							--#{$prefix}-out-right: 0px;
+						}
 					}
 				}
 			}@else {
@@ -263,8 +293,21 @@
 				}
 				@if( $cols != $prev-cols ){
 					--#{$prefix}-cols: #{$cols};
-					--#{$prefix}-out-left: #{if( $offset, if($start != 'full' and $start > 1, var(--#{$prefix}-gutter), var(--#{$prefix}-offset-out) ), 0px )};
-					--#{$prefix}-out-right: #{if( $offset, if($end != 'full' and $cols > $end, var(--#{$prefix}-gutter), var(--#{$prefix}-offset-out) ), 0px )};
+					@if $offset {
+						@if $start != 'full' and $start > 1 {
+							--#{$prefix}-out-left: var(--#{$prefix}-gutter);
+						} @else {
+							--#{$prefix}-out-left: var(--#{$prefix}-offset-out);
+						}
+						@if $end != 'full' and $cols > $end {
+							--#{$prefix}-out-right: var(--#{$prefix}-gutter);
+						} @else {
+							--#{$prefix}-out-right: var(--#{$prefix}-offset-out);
+						}
+					} @else {
+						--#{$prefix}-out-left: 0px;
+						--#{$prefix}-out-right: 0px;
+					}
 				}
 			}
 			$prev-gutter: $gutter;
@@ -275,7 +318,9 @@
 }
 
 @function grrr-cols-size($cols: 1, $extra-gutter: 0, $config: $grrr-config, $prefix: false) {
-	$prefix: if( $prefix = false , map.get($map: $config, $key: 'name'), $prefix);
+	@if $prefix == false {
+		$prefix: map.get($config, 'name');
+	}
 
 	@return calc(var(--#{$prefix}-col-context-size, var(--#{$prefix}-col-width)) * #{$cols} + (var(--#{$prefix}-gutter) * ($cols - 1 + $extra-gutter) ));
 }
@@ -294,7 +339,12 @@
 	$group_size: $col_size * $breakcol;
 
 	$gutters_size: calc($gap * ($breakcol - 1));
-	$break-px: #{if($with-margins,math.ceil($group_size + $gutters_size + ($margin * 2)),math.ceil($group_size + $gutters_size))};
+	$break-px: null;
+	@if $with-margins {
+		$break-px: #{math.ceil($group_size + $gutters_size + ($margin * 2))};
+	} @else {
+		$break-px: #{math.ceil($group_size + $gutters_size)};
+	}
 
 	@media (max-width: $break-px) {
 		@content;
@@ -315,7 +365,12 @@
 	$group_size: $col_size * $breakcol;
 
 	$gutters_size: calc($gap * ($breakcol - 1));
-	$break-px: #{if($with-margins,math.ceil($group_size + $gutters_size + 1px + ($margin * 2)),math.ceil($group_size + $gutters_size + 1px))};
+	$break-px: null;
+	@if $with-margins {
+		$break-px: #{math.ceil($group_size + $gutters_size + 1px + ($margin * 2))};
+	} @else {
+		$break-px: #{math.ceil($group_size + $gutters_size + 1px)};
+	}
 
 	@media (min-width: $break-px) {
 		@content;
@@ -336,11 +391,21 @@
 
 	$group_size-lower: $col_size * $breakcol-lower;
 	$gutters_size-lower: calc($gap * ($breakcol-lower - 1));
-	$break-px-lower: #{if($with-margins, math.ceil($group_size-lower + $gutters_size-lower + ($margin * 2)), math.ceil($group_size-lower + $gutters_size-lower))};
+	$break-px-lower: null;
+	@if $with-margins {
+		$break-px-lower: #{math.ceil($group_size-lower + $gutters_size-lower + ($margin * 2))};
+	} @else {
+		$break-px-lower: #{math.ceil($group_size-lower + $gutters_size-lower)};
+	}
 
 	$group_size-upper: $col_size * $breakcol-upper;
 	$gutters_size-upper: calc($gap * ($breakcol-upper - 1));
-	$break-px-upper: #{if($with-margins, math.ceil($group_size-upper + $gutters_size-upper + 1px + ($margin * 2)), math.ceil($group_size-upper + $gutters_size-upper + 1px))};
+	$break-px-upper: null;
+	@if $with-margins {
+		$break-px-upper: #{math.ceil($group_size-upper + $gutters_size-upper + 1px + ($margin * 2))};
+	} @else {
+		$break-px-upper: #{math.ceil($group_size-upper + $gutters_size-upper + 1px)};
+	}
 
 	@media (min-width: $break-px-lower) and (max-width: $break-px-upper) {
 		@content;
