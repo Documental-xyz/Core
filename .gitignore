@@ -39,3 +39,5 @@ core
 # opencode/orchestrator internal tooling
 .omo/
 .playwright-mcp/
+.serena
+.vscode

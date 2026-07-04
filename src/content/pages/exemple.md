@@ -1,11 +1,11 @@
 ---
 title: Teste Layout
-slug: layout
+slug: home
 pageSettings:
   language: pt-BR
-  link_pt_br: /layout
-  link_en: /layout-en
-  link_es: /layout-es
+  link_pt_br: /home
+  link_en: /home-en
+  link_es: /home-es
   animations: enable_all
   direction: right
   seoTitle: ''
