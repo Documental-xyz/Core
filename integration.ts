@@ -22,6 +22,8 @@ export interface CoreOptions {
   mediaFolder?: string;
   /** Public folder URL prefix (default 'uploads') */
   publicFolder?: string;
+  /** Pages collection folder path (default 'src/content/pages') */
+  pagesFolder?: string;
   /** Site URL override (fallback: process.env.SITE) */
   site?: string;
   /** Base path override (fallback: process.env.BASE_PATH) */
@@ -100,6 +102,7 @@ export default function core(options: CoreOptions): AstroIntegration {
                 authBaseUrl: options.authBaseUrl,
                 mediaFolder: options.mediaFolder,
                 publicFolder: options.publicFolder,
+                pagesFolder: options.pagesFolder,
               }),
             ],
             resolve: {

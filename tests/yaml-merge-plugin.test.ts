@@ -277,6 +277,53 @@ public_folder: \${PUBLIC_FOLDER}
     expect(out).toContain('public_folder: uploads');
   });
 
+  it('substitutes ${PAGES_FOLDER} with custom value', async () => {
+    fixture({
+      mainTemplate: `backend:
+  name: github
+  repo: \${REPO}
+collections:
+  - name: pages
+    folder: \${PAGES_FOLDER}
+`,
+      componentsOrder: [],
+    });
+    await runPlugin({
+      repo: 'org/repo',
+      branch: 'main',
+      pagesFolder: 'content/posts',
+    });
+    const out = fs.readFileSync(
+      path.join(tmpRoot, 'public/admin/config.yml'),
+      'utf8'
+    );
+    expect(out).toContain('folder: content/posts');
+    expect(out).not.toMatch(/\$\{[A-Z_]+\}/);
+  });
+
+  it('uses default src/content/pages when pagesFolder not specified', async () => {
+    fixture({
+      mainTemplate: `backend:
+  name: github
+  repo: \${REPO}
+collections:
+  - name: pages
+    folder: \${PAGES_FOLDER}
+`,
+      componentsOrder: [],
+    });
+    await runPlugin({
+      repo: 'org/repo',
+      branch: 'main',
+    });
+    const out = fs.readFileSync(
+      path.join(tmpRoot, 'public/admin/config.yml'),
+      'utf8'
+    );
+    expect(out).toContain('folder: src/content/pages');
+    expect(out).not.toMatch(/\$\{[A-Z_]+\}/);
+  });
+
   it('prefers main.yml.template over main.yml when both exist', async () => {
     fixture({
       mainTemplate: 'backend:\n  repo: \${REPO}\n',

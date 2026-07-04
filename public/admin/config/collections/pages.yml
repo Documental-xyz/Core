@@ -1,7 +1,7 @@
 collections:
   - name: 'pages'
     label: 'Páginas'
-    folder: 'src/content/pages'
+    folder: '${PAGES_FOLDER}'
     create: true
     editor:
       preview: false

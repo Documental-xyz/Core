@@ -52,6 +52,8 @@ export interface YamlMergePluginOptions {
   mediaFolder?: string;
   /** CMS public_folder. Defaults to `'uploads'`. Substitutes `${PUBLIC_FOLDER}`. */
   publicFolder?: string;
+  /** Pages collection folder path. Defaults to `'src/content/pages'`. Substitutes `${PAGES_FOLDER}`. */
+  pagesFolder?: string;
   /**
    * Override the core package root for template resolution.
    * Defaults to `CORE_ROOT` (resolved from this module's location).
@@ -67,6 +69,7 @@ interface ResolvedOptions {
   authBaseUrl: string;
   mediaFolder: string;
   publicFolder: string;
+  pagesFolder: string;
   coreRoot: string;
 }
 
@@ -75,6 +78,7 @@ export const YAML_MERGE_DEFAULTS = {
   branch: 'main',
   mediaFolder: 'public/uploads',
   publicFolder: 'uploads',
+  pagesFolder: 'src/content/pages',
 } as const;
 
 function resolveOptions(opts: YamlMergePluginOptions): ResolvedOptions {
@@ -89,6 +93,7 @@ function resolveOptions(opts: YamlMergePluginOptions): ResolvedOptions {
     authBaseUrl: opts.authBaseUrl ?? '',
     mediaFolder: opts.mediaFolder ?? YAML_MERGE_DEFAULTS.mediaFolder,
     publicFolder: opts.publicFolder ?? YAML_MERGE_DEFAULTS.publicFolder,
+    pagesFolder: opts.pagesFolder ?? YAML_MERGE_DEFAULTS.pagesFolder,
     coreRoot: opts.coreRoot ?? CORE_ROOT,
   };
 }
@@ -192,6 +197,7 @@ export async function buildMergedYamlText(
     AUTH_BASE_URL: resolved.authBaseUrl,
     MEDIA_FOLDER: resolved.mediaFolder,
     PUBLIC_FOLDER: resolved.publicFolder,
+    PAGES_FOLDER: resolved.pagesFolder,
   });
 }
 
