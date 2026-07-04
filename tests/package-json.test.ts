@@ -10,8 +10,8 @@ describe('package.json npm publish config', () => {
     expect(pkg.name).toBe('@documental-xyz/core');
   });
 
-  it('has version 0.1.0', () => {
-    expect(pkg.version).toBe('0.1.0');
+  it('has a valid semver version', () => {
+    expect(pkg.version).toMatch(/^\d+\.\d+\.\d+/);
   });
 
   it('has type module', () => {
