@@ -32,8 +32,11 @@
   },
   "files": [
     "src/",
-    "public/",
+    "public/admin/",
+    "public/favicon.svg",
     "integration.ts",
+    "content.config.ts",
+    "env.d.ts",
     "README.md"
   ],
   "publishConfig": {
