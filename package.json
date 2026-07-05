@@ -32,6 +32,7 @@
   },
   "files": [
     "src/",
+    "public/",
     "integration.ts",
     "README.md"
   ],
@@ -50,6 +51,7 @@
   },
   "dependencies": {
     "astro-icon": "^0.8.1",
+    "fdir": "^6.3.0",
     "glob": "^10.5.0",
     "gray-matter": "^4.0.3",
     "js-yaml": "^4.3.0",
