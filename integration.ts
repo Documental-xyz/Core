@@ -95,6 +95,9 @@ export default function core(options: CoreOptions): AstroIntegration {
         //    integrations / user vite config cleanly (T2 POC).
         updateConfig({
           vite: {
+            ssr: {
+              noExternal: ['@documental-xyz/core'],
+            },
             plugins: [
               createYamlMergePlugin({
                 repo: options.repo,

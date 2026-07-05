@@ -32,6 +32,8 @@ import Gallery from '../../components/Gallery.astro';
 import Slider from '../../components/Slider.astro';
 import Menu from "../../components/Menu.astro";
 
+import { layoutMap } from '../layout-index';
+
 const { slug } = Astro.props;
 
 const entry = await getEntry(PAGES_COLLECTION, slug);
@@ -166,11 +168,9 @@ const mainMenu = components
               );
             }
 
-            let Layout = null;
-            try {
-              const layoutModule = await import(`../components/${type}Layout.astro`);
-              Layout = layoutModule.default;
-            } catch (e) {
+            let Layout = layoutMap[type] || null;
+            if (!Layout && type) {
+              console.warn(`[Documental] No layout found for type="${type}"`);
             }
 
             const children = childComponents ? await renderComponents(childComponents) : [];
