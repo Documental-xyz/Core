@@ -12,7 +12,12 @@ logosGroup: &logosGroup
       collapsed: true
     - label: 'Logos'
       name: 'logos'
+      # max: 4 — baseado em nhanderekoa.md (max 3 logos por LogosGroup, 2 instâncias). Permite ~33% crescimento.
+      # Adicionado em Fase 1 do plano sveltia-perf para prevenir agravamento de lag.
+      # Ver .omo/plans/sveltia-perf-fase0-fase1.md Task 8.
       widget: 'list'
+      min: 0
+      max: 4
       required: false
       collapsed: true
       fields:

@@ -12,7 +12,12 @@ cards: &cards
       collapsed: true
     - label: 'Cards'
       name: 'cardsArr'
+      # max: 2 — baseado em nhanderekoa.md (max 1 card por Cards, 2 instâncias). Permite 2x crescimento.
+      # Adicionado em Fase 1 do plano sveltia-perf para prevenir agravamento de lag.
+      # Ver .omo/plans/sveltia-perf-fase0-fase1.md Task 8.
       widget: 'list'
+      min: 0
+      max: 2
       required: false
       collapsed: true
       fields:

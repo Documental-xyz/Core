@@ -119,7 +119,12 @@ group: &group
       collapsed: true
     - label: 'Components'
       name: 'components'
+      # max: 6 — baseado em nhanderekoa.md (max 3 componentes em 28 Groups, média 1.2). Cap conservador permite 2x crescimento.
+      # Adicionado em Fase 1 do plano sveltia-perf para prevenir agravamento de lag.
+      # Ver .omo/plans/sveltia-perf-fase0-fase1.md Task 8.
       widget: 'list'
+      min: 0
+      max: 6
       required: false
       collapsed: true
       types:

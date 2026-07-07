@@ -81,7 +81,12 @@ map: &map
       collapsed: true
     - label: 'Components'
       name: 'components'
+      # max: 56 — baseado em nhanderekoa.md (max 45 instâncias em um único Map, soma 143 em 6 maps). Permite ~25% crescimento.
+      # Adicionado em Fase 1 do plano sveltia-perf para prevenir agravamento de lag.
+      # Ver .omo/plans/sveltia-perf-fase0-fase1.md Task 8.
       widget: 'list'
+      min: 0
+      max: 56
       required: false
       collapsed: true
       types:

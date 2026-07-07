@@ -22,7 +22,12 @@ gallery: &gallery
       collapsed: true
     - label: 'Images'
       name: 'images'
+      # max: 8 — baseado em nhanderekoa.md (max 6 imagens por Gallery, 2 instâncias). Permite ~25% crescimento.
+      # Adicionado em Fase 1 do plano sveltia-perf para prevenir agravamento de lag.
+      # Ver .omo/plans/sveltia-perf-fase0-fase1.md Task 8.
       widget: 'list'
+      min: 0
+      max: 8
       required: false
       collapsed: true
       fields:

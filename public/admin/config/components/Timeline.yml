@@ -12,7 +12,12 @@ timeline: &timeline
       collapsed: true
     - label: 'Components'
       name: 'components'
+      # max: 5 — baseado em nhanderekoa.md (14 Timelines, max 3 componentes cada). Permite ~66% crescimento.
+      # Adicionado em Fase 1 do plano sveltia-perf para prevenir agravamento de lag.
+      # Ver .omo/plans/sveltia-perf-fase0-fase1.md Task 8.
       widget: 'list'
+      min: 0
+      max: 5
       required: false
       collapsed: true
       types:
