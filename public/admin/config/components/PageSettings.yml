@@ -31,7 +31,7 @@ pageSettings: &pageSettings
     - label: 'Animations'
       name: 'animations'
       widget: 'select'
-      options: 
+      options:
         - { label: 'Enable All', value: 'enable_all' }
         - { label: 'Disable All', value: 'disable_all' }
         - { label: 'Custom by Components', value: 'custom' }
@@ -54,7 +54,7 @@ pageSettings: &pageSettings
     - label: 'SEO Description'
       name: 'seoDescription'
       widget: 'string'
-      required: false      
+      required: false
       hint: 'description of the page shown in search results and in link previews on social media'
       collapsed: true
     - label: 'SEO Keywords'

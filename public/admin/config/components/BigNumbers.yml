@@ -13,7 +13,7 @@ bigNumbers: &bigNumbers
     - label: 'Alignment'
       name: 'alignment'
       widget: 'select'
-      options: 
+      options:
         - { label: 'Caption-Bottom', value: 'caption-bottom' }
         - { label: 'Caption-Top', value: 'caption-top' }
       default: 'caption-bottom'
