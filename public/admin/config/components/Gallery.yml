@@ -1,5 +1,5 @@
 gallery: &gallery
-  label: 'Gallery'
+  label: 'Image Gallery'
   name: 'Gallery'
   widget: 'object'
   summary: '{{fields.uniqid}}'
@@ -14,6 +14,7 @@ gallery: &gallery
       name: 'uniqid'
       widget: 'string'
       required: true
+      hint: 'Gallery identifier name. Must be unique for each gallery component'
       collapsed: true
     - label: 'Description'
       name: 'description'

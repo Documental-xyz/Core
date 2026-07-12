@@ -1,5 +1,5 @@
 columnSticky: &columnSticky
-  label: 'Column Sticky'
+  label: 'Fixed Column (Title Column)'
   name: 'ColumnSticky'
   widget: 'object'
   summary: '{{fields.title}}'
@@ -29,17 +29,21 @@ columnSticky: &columnSticky
       widget: 'boolean'
       required: false
       default: false
+      hint: 'enable to add spacing to the top of the component'
       collapsed: true
     - label: 'Padding Bottom'
       name: 'paddingBottom'
       widget: 'boolean'
       required: false
       default: false
+      hint: 'enable to add spacing to the bottom of the component'
       collapsed: true
     - label: 'Layout'
       name: 'layout'
       widget: 'select'
-      options: ['text-bigger', 'title-bottom']
+      options: 
+        - { label: 'Text-Bigger', value: 'text-bigger' }
+        - { label: 'Title-Bottom', value: 'title-bottom' }
       default: 'text-bigger'
       collapsed: true
     - label: 'Title'

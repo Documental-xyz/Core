@@ -1,5 +1,5 @@
 chartBar: &chartBar
-  label: 'Chart Bar'
+  label: 'Bar Chart'
   name: 'ChartBar'
   widget: 'object'
   summary: '{{fields.chartTitle}}'
@@ -10,12 +10,12 @@ chartBar: &chartBar
       widget: 'hidden'
       default: 'ChartBar'
       collapsed: true
-    - label: 'Chart Title'
+    - label: 'Title'
       name: 'chartTitle'
       widget: 'string'
       required: false
       collapsed: true
-    - label: 'Chart Notes'
+    - label: 'Notes'
       name: 'chartNotes'
       widget: 'string'
       required: false

@@ -16,7 +16,7 @@ videoEmbed: &videoEmbed
       required: false
       default: false
       collapsed: true
-    - label: 'Video URL'
+    - label: 'Video Embed URL'
       name: 'videoUrl'
       widget: 'string'
       required: false

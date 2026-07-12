@@ -1,5 +1,5 @@
 cardsCall: &cardsCall
-  label: 'Cards Call'
+  label: 'Action Cards'
   name: 'CardsCall'
   widget: 'object'
   summary: '{{fields.cardsCallArr}}'

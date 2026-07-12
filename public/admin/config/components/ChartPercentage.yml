@@ -1,5 +1,5 @@
 chartPercentage: &chartPercentage
-  label: 'Chart Percentage'
+  label: 'Percentage Chart'
   name: 'ChartPercentage'
   widget: 'object'
   summary: '{{fields.chartPercentageTitle}}'
@@ -10,17 +10,17 @@ chartPercentage: &chartPercentage
       widget: 'hidden'
       default: 'ChartPercentage'
       collapsed: true
-    - label: 'Chart Percentage Title'
+    - label: 'Title'
       name: 'chartPercentageTitle'
       widget: 'string'
       required: false
       collapsed: true
-    - label: 'Chart Notes'
+    - label: 'Notes'
       name: 'chartPercentageNotes'
       widget: 'string'
       required: false
       collapsed: true
-    - label: 'Chart Percentage Values'
+    - label: 'Values'
       name: 'chartPercentageValues'
       widget: 'list'
       required: false

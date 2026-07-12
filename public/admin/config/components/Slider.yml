@@ -1,5 +1,5 @@
 slider: &slider
-  label: 'Slider'
+  label: 'Image Slider'
   name: 'Slider'
   widget: 'object'
   summary: '{{fields.slides}}'

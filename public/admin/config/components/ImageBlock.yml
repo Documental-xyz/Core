@@ -1,5 +1,5 @@
 imageBlock: &imageBlock
-  label: 'Image Block'
+  label: 'Image'
   name: 'ImageBlock'
   widget: 'object'
   summary: '{{fields.src}}'
@@ -25,6 +25,7 @@ imageBlock: &imageBlock
       name: 'alt'
       widget: 'string'
       required: false
+      hint: 'used to describe the image for screen readers'
       collapsed: true
     - label: 'Description'
       name: 'description'

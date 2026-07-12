@@ -1,5 +1,5 @@
 cta: &cta
-  label: 'CTA'
+  label: 'Call to Action'
   name: 'Cta'
   widget: 'object'
   summary: '{{fields.shortTitle}}'
@@ -163,11 +163,11 @@ cta: &cta
       widget: 'markdown'
       required: false
       collapsed: true
-    - label: 'Highlighted Text'
+    - label: 'Add Highlighted Text'
       name: 'highlightedText'
       widget: 'string'
       required: false
-      hint: 'Texto destacado (exibido quando não há media)'
+      hint: 'highlighted text shown when no media is uploaded'
       collapsed: true
     - label: 'Link'
       name: 'link'

@@ -13,7 +13,9 @@ bigNumbers: &bigNumbers
     - label: 'Alignment'
       name: 'alignment'
       widget: 'select'
-      options: ['caption-bottom', 'caption-top']
+      options: 
+        - { label: 'Caption-Bottom', value: 'caption-bottom' }
+        - { label: 'Caption-Top', value: 'caption-top' }
       default: 'caption-bottom'
       collapsed: true
     - label: 'Items'

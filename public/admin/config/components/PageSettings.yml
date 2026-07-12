@@ -10,19 +10,19 @@ pageSettings: &pageSettings
       options: ['pt-BR', 'en', 'es']
       default: 'pt-BR'
       collapsed: true
-    - label: 'Link pt-br'
+    - label: 'Slug PT-BR'
       name: 'link_pt_br'
       widget: 'string'
       required: false
       default: '#'
       collapsed: true
-    - label: 'Link en'
+    - label: 'Slug EN'
       name: 'link_en'
       widget: 'string'
       required: false
       default: '#'
       collapsed: true
-    - label: 'Link es'
+    - label: 'Slug ES'
       name: 'link_es'
       widget: 'string'
       required: false
@@ -49,16 +49,19 @@ pageSettings: &pageSettings
       name: 'seoTitle'
       widget: 'string'
       required: false
+      hint: 'title shown in search results and in link previews on social media'
       collapsed: true
     - label: 'SEO Description'
       name: 'seoDescription'
       widget: 'string'
-      required: false
+      required: false      
+      hint: 'description of the page shown in search results and in link previews on social media'
       collapsed: true
     - label: 'SEO Keywords'
       name: 'seoKeywords'
       widget: 'list'
       required: false
+      hint: 'keywords that help search engines understand the page topic'
       collapsed: true
       fields:
         - { label: 'Keyword', name: 'keyword', widget: 'string', collapsed: true }
@@ -66,4 +69,5 @@ pageSettings: &pageSettings
       name: 'seoImage'
       widget: 'image'
       required: false
+      hint: 'image shown in link previews on social media'
       collapsed: true

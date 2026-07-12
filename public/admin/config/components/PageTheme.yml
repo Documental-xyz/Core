@@ -32,18 +32,18 @@ pageTheme: &pageTheme
       allowInput: true
       allowAlpha: true
       collapsed: true
-    - label: 'Display Font'
+    - label: 'Heading Font'
       name: 'displayFont'
       widget: 'string'
       required: false
       collapsed: true
-      hint: 'Consulte uma fonte para títulos em [Google Fonts](https://fonts.google.com/)'
-    - label: 'Text Font'
+      hint: 'browse a heading font on [Google Fonts](https://fonts.google.com/)'
+    - label: 'Body Font'
       name: 'textFont'
       widget: 'string'
       required: false
       collapsed: true
-      hint: 'Consulte uma fonte para textos em [Google Fonts](https://fonts.google.com/)'
+      hint: 'browse a body font on [Google Fonts](https://fonts.google.com/)'
     - label: 'Spacing Patterns'
       name: 'spacingPatterns'
       widget: 'list'
