@@ -199,9 +199,26 @@ const mainMenu = components
                 const newAncestors = new Set(ancestorSlugs);
                 newAncestors.add(targetEntry.id);
                 const targetComponents = targetEntry.data.components || [];
+
+                // Render both structured components AND markdown body (if any).
+                // Astro 5 markdown entries expose entry.body (raw markdown string)
+                // and entry.render() (returns a Content component for the body).
+                const renderedComponents = await renderComponents(
+                  targetComponents,
+                  depth + 1,
+                  newAncestors
+                );
+
+                let renderedBody = null;
+                if (targetEntry.body && targetEntry.body.trim()) {
+                  const { Content } = await targetEntry.render();
+                  renderedBody = <Content />;
+                }
+
                 return (
                   <Include>
-                    {await renderComponents(targetComponents, depth + 1, newAncestors)}
+                    {renderedComponents}
+                    {renderedBody}
                   </Include>
                 );
               } catch (e) {
