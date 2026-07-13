@@ -25,6 +25,9 @@ pageTheme:
       mobile: '10'
       tablet: '11'
       desktop: '12'
+standalone:
+  enabled: false
+  parentSlug: ''
 components:
   - type: Group
     id: Grupo 09
@@ -909,7 +912,4 @@ components:
     ctaText: fsdfsdfsdfd fsdfsd sf sfdf fsdf fsd fsd sfdf sdf wesdvfwegmkadnfrrweuo weoin nwenuo rnweuo rnweruion vsdaeior iwenior ier dsffsdd
     highlightedText: Teste de CTA2
     link: null
-standalone:
-  enabled: true
-  parentSlug: hone
 ---

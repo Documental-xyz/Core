@@ -23,19 +23,19 @@ pageSettings: &pageSettings
       options: ['pt-BR', 'en', 'es']
       default: 'pt-BR'
       collapsed: true
-    - label: 'Link pt-br'
+    - label: 'Slug PT-BR'
       name: 'link_pt_br'
       widget: 'string'
       required: false
       default: '#'
       collapsed: true
-    - label: 'Link en'
+    - label: 'Slug EN'
       name: 'link_en'
       widget: 'string'
       required: false
       default: '#'
       collapsed: true
-    - label: 'Link es'
+    - label: 'Slug ES'
       name: 'link_es'
       widget: 'string'
       required: false
@@ -44,7 +44,7 @@ pageSettings: &pageSettings
     - label: 'Animations'
       name: 'animations'
       widget: 'select'
-      options: 
+      options:
         - { label: 'Enable All', value: 'enable_all' }
         - { label: 'Disable All', value: 'disable_all' }
         - { label: 'Custom by Components', value: 'custom' }
@@ -62,16 +62,19 @@ pageSettings: &pageSettings
       name: 'seoTitle'
       widget: 'string'
       required: false
+      hint: 'title shown in search results and in link previews on social media'
       collapsed: true
     - label: 'SEO Description'
       name: 'seoDescription'
       widget: 'string'
       required: false
+      hint: 'description of the page shown in search results and in link previews on social media'
       collapsed: true
     - label: 'SEO Keywords'
       name: 'seoKeywords'
       widget: 'list'
       required: false
+      hint: 'keywords that help search engines understand the page topic'
       collapsed: true
       fields:
         - { label: 'Keyword', name: 'keyword', widget: 'string', collapsed: true }
@@ -79,6 +82,7 @@ pageSettings: &pageSettings
       name: 'seoImage'
       widget: 'image'
       required: false
+      hint: 'image shown in link previews on social media'
       collapsed: true
 pageTheme: &pageTheme
   label: 'Page Theme'
@@ -114,18 +118,18 @@ pageTheme: &pageTheme
       allowInput: true
       allowAlpha: true
       collapsed: true
-    - label: 'Display Font'
+    - label: 'Heading Font'
       name: 'displayFont'
       widget: 'string'
       required: false
       collapsed: true
-      hint: 'Consulte uma fonte para títulos em [Google Fonts](https://fonts.google.com/)'
-    - label: 'Text Font'
+      hint: 'browse a heading font on [Google Fonts](https://fonts.google.com/)'
+    - label: 'Body Font'
       name: 'textFont'
       widget: 'string'
       required: false
       collapsed: true
-      hint: 'Consulte uma fonte para textos em [Google Fonts](https://fonts.google.com/)'
+      hint: 'browse a body font on [Google Fonts](https://fonts.google.com/)'
     - label: 'Spacing Patterns'
       name: 'spacingPatterns'
       widget: 'list'
@@ -223,7 +227,7 @@ button: &button
       required: false
       collapsed: true
 imageBlock: &imageBlock
-  label: 'Image Block'
+  label: 'Image'
   name: 'ImageBlock'
   widget: 'object'
   summary: '{{fields.src}}'
@@ -249,11 +253,42 @@ imageBlock: &imageBlock
       name: 'alt'
       widget: 'string'
       required: false
+      hint: 'used to describe the image for screen readers'
       collapsed: true
     - label: 'Description'
       name: 'description'
       widget: 'string'
       required: false
+      collapsed: true
+include: &include
+  label: 'Include'
+  name: 'Include'
+  widget: 'object'
+  summary: '{{fields.slug}}'
+  collapsed: true
+  fields:
+    - label: 'Type'
+      name: 'type'
+      widget: 'hidden'
+      default: 'Include'
+      collapsed: true
+    - label: 'ID'
+      name: 'id'
+      widget: 'string'
+      required: false
+      hint: 'Component identifier name. Must be unique for each component. Use only letters and numbers.'
+      collapsed: true
+    - label: 'Short Title'
+      name: 'shortTitle'
+      widget: 'string'
+      required: false
+      hint: 'Component short title.'
+      collapsed: true
+    - label: 'Slug da página alvo'
+      name: 'slug'
+      widget: 'string'
+      required: false
+      hint: 'Slug da página cujo conteúdo será incluído aqui.'
       collapsed: true
 videoEmbed: &videoEmbed
   label: 'Video Embed'
@@ -273,7 +308,7 @@ videoEmbed: &videoEmbed
       required: false
       default: false
       collapsed: true
-    - label: 'Video URL'
+    - label: 'Video Embed URL'
       name: 'videoUrl'
       widget: 'string'
       required: false
@@ -314,7 +349,7 @@ htmlEmbed: &htmlEmbed
       required: false
       collapsed: true
 chartBar: &chartBar
-  label: 'Chart Bar'
+  label: 'Bar Chart'
   name: 'ChartBar'
   widget: 'object'
   summary: '{{fields.chartTitle}}'
@@ -325,12 +360,12 @@ chartBar: &chartBar
       widget: 'hidden'
       default: 'ChartBar'
       collapsed: true
-    - label: 'Chart Title'
+    - label: 'Title'
       name: 'chartTitle'
       widget: 'string'
       required: false
       collapsed: true
-    - label: 'Chart Notes'
+    - label: 'Notes'
       name: 'chartNotes'
       widget: 'string'
       required: false
@@ -370,7 +405,7 @@ chartBar: &chartBar
           step: 0.01
           collapsed: true
 chartPercentage: &chartPercentage
-  label: 'Chart Percentage'
+  label: 'Percentage Chart'
   name: 'ChartPercentage'
   widget: 'object'
   summary: '{{fields.chartPercentageTitle}}'
@@ -381,17 +416,17 @@ chartPercentage: &chartPercentage
       widget: 'hidden'
       default: 'ChartPercentage'
       collapsed: true
-    - label: 'Chart Percentage Title'
+    - label: 'Title'
       name: 'chartPercentageTitle'
       widget: 'string'
       required: false
       collapsed: true
-    - label: 'Chart Notes'
+    - label: 'Notes'
       name: 'chartPercentageNotes'
       widget: 'string'
       required: false
       collapsed: true
-    - label: 'Chart Percentage Values'
+    - label: 'Values'
       name: 'chartPercentageValues'
       widget: 'list'
       required: false
@@ -431,7 +466,9 @@ bigNumbers: &bigNumbers
     - label: 'Alignment'
       name: 'alignment'
       widget: 'select'
-      options: ['caption-bottom', 'caption-top']
+      options:
+        - { label: 'Caption-Bottom', value: 'caption-bottom' }
+        - { label: 'Caption-Top', value: 'caption-top' }
       default: 'caption-bottom'
       collapsed: true
     - label: 'Items'
@@ -450,7 +487,7 @@ bigNumbers: &bigNumbers
           required: false
           collapsed: true
 compare: &compare
-  label: 'Compare'
+  label: 'Image Compare'
   name: 'Compare'
   widget: 'object'
   summary: '{{fields.caption}}'
@@ -461,13 +498,13 @@ compare: &compare
       widget: 'hidden'
       default: 'Compare'
       collapsed: true
-    - label: 'Image Left'
+    - label: 'Left image'
       name: 'imageLeft'
       widget: 'image'
       required: true
       multiple: false
       collapsed: true
-    - label: 'Image Right'
+    - label: 'Right image'
       name: 'imageRight'
       widget: 'image'
       required: true
@@ -492,57 +529,57 @@ mapBox: &mapBox
     - label: 'Map Style'
       name: 'style'
       widget: 'string'
-      required: true
-      hint: 'URL do estilo do MapBox (ex: mapbox://styles/username/style-id)'
+      required: false
+      hint: 'Mapbox Style URL (ex: mapbox://styles/username/style-id)'
     - label: 'Map Token'
       name: 'token'
       widget: 'string'
-      required: true
-      hint: 'Token de acesso do MapBox'
+      required: false
+      hint: 'Mapbox Access Token'
     - label: 'Map Center Longitude'
       name: 'centerLng'
       widget: 'string'
       collapsed: true
-      hint: 'Ex: -54.875'
+      hint: 'ex: -54.875'
       required: true
     - label: 'Map Center Latitude'
       name: 'centerLat'
       widget: 'string'
       collapsed: true
-      hint: 'Ex: -2.53'
-      required: true
+      hint: 'ex: -2.53'
+      required: false
     - label: 'Map Zoom'
       name: 'zoom'
       widget: 'string'
       default: '2'
       collapsed: true
-      hint: 'Valor numérico como string. Ex: 2 ou 2.5'
-      required: true
+      hint: 'ex: 2 or 2.5'
+      required: false
     - label: 'Map Bearing'
       name: 'bearing'
       widget: 'string'
       default: '0'
       collapsed: true
-      hint: 'Valor numérico como string. Ex: 0 ou 45.5'
+      hint: 'ex: 0 or 45.5'
       required: false
     - label: 'Map Pitch'
       name: 'pitch'
       widget: 'string'
       default: '0'
       collapsed: true
-      hint: 'Valor numérico como string. Ex: 0 ou 30'
+      hint: 'ex: 0 or 30'
       required: false
     - label: 'Map Layers'
       name: 'layers'
       widget: 'text'
       required: false
       collapsed: true
-      hint: 'Uma layer por linha. Formato: "layerName" ou "layerName[property==value]". Ex: mineracao ou mineracao[pais==Brasil]'
+      hint: 'insert one layer on each line. format: “layerName” or “layerName[property==value]”. ex: “mining” or “mining[country==brasil]”'
     - label: 'Column Align'
       name: 'columnAlign'
       widget: 'select'
       options: ['left', 'center', 'right']
-      required: true
+      required: false
       default: 'left'
     - label: 'Floating Text'
       name: 'floatingText'
@@ -551,77 +588,87 @@ mapBox: &mapBox
       default: false
     - label: 'Map Views'
       name: 'views'
+      # max: 49 — baseado em nhanderekoa.md (39 views no único MapBox do repro). Permite ~25% crescimento.
+      # Adicionado em Fase 1 do plano sveltia-perf para prevenir agravamento de lag.
+      # Ver .omo/plans/sveltia-perf-fase0-fase1.md Task 8.
       widget: 'list'
+      min: 0
+      max: 49
       collapsed: true
       required: false
       fields:
         - label: 'View ID'
           name: 'id'
           widget: 'string'
-          required: true
-          hint: 'Identificador único da view'
+          required: false
+          hint: 'View identifier name. Must be unique for each view. Use only letters, numbers, periods (.) or underscores (_), with no spaces or accents.'
         - label: 'View Center Longitude'
           name: 'centerLng'
           widget: 'string'
           collapsed: true
-          hint: 'Ex: -54.875'
-          required: true
+          hint: 'ex: -54.875'
+          required: false
         - label: 'View Center Latitude'
           name: 'centerLat'
           widget: 'string'
           collapsed: true
-          hint: 'Ex: -2.53'
-          required: true
+          hint: 'ex: -2.53'
+          required: false
         - label: 'View Zoom'
           name: 'zoom'
           widget: 'string'
           collapsed: true
-          hint: 'Valor numérico como string. Ex: 8 ou 8.5'
-          required: true
+          hint: 'ex: 8 or 8.5'
+          required: false
         - label: 'Mobile Zoom'
           name: 'mobileZoom'
           widget: 'string'
           collapsed: true
           required: false
-          hint: 'Zoom específico para mobile como string. Ex: 3.5'
+          hint: 'ex: 3.5'
         - label: 'Duration (ms)'
           name: 'duration'
           widget: 'string'
           default: '2000'
           collapsed: true
-          hint: 'Duração em milissegundos como string. Ex: 2000'
+          hint: 'duration in milliseconds. ex: 2000'
           required: false
         - label: 'View Bearing'
           name: 'bearing'
           widget: 'string'
           default: '0'
           collapsed: true
-          hint: 'Valor numérico como string. Ex: 0 ou 45'
+          hint: 'ex: 0 or 45'
           required: false
         - label: 'View Pitch'
           name: 'pitch'
           widget: 'string'
           default: '0'
           collapsed: true
-          hint: 'Valor numérico como string. Ex: 0 ou 30'
+          hint: 'ex: 0 or 30'
           required: false
         - label: 'View Layers'
           name: 'layers'
           widget: 'text'
           required: false
           collapsed: true
-          hint: 'Uma layer por linha. Ex: mineracao ou mineracao[pais==Brasil]'
-        - label: 'Caption Title'
+          hint: 'insert one layer on each line. format: “layerName” or “layerName[property==value]”. ex: “mining” or “mining[country==brasil]”'
+        - label: 'Legend Title'
           name: 'title'
           widget: 'string'
           required: false
-        - label: 'Notes'
+        - label: 'Legend Notes'
           name: 'notes'
           widget: 'text'
           required: false
         - label: 'Legend Items'
           name: 'items'
+          # max: 8 — baseado em nhanderekoa.md (max 6 items por view, 37 instâncias). Permite ~25% crescimento.
+          # Adicionado em Fase 1 do plano sveltia-perf para prevenir agravamento de lag.
+          # Ver .omo/plans/sveltia-perf-fase0-fase1.md Task 8.
           widget: 'list'
+          min: 0
+          max: 8
           collapsed: true
           required: false
           summary: '{{fields.text}}'
@@ -630,7 +677,7 @@ mapBox: &mapBox
               name: 'icon'
               widget: 'string'
               required: false
-              hint: 'Consulte um ícone no [Google Fonts Icon](https://fonts.google.com/icons)'
+              hint: 'browse for an icon on [Google Fonts Icon](https://fonts.google.com/icons)'
             - label: 'Icon Color'
               name: 'colorIcon'
               widget: 'color'
@@ -642,13 +689,13 @@ mapBox: &mapBox
               widget: 'select'
               options: ['outlined', 'rounded', 'sharp']
               default: 'outlined'
-              required: true
+              required: false
             - label: 'Icon Fill'
               name: 'iconFill'
               widget: 'boolean'
               required: false
               default: false
-              hint: 'Ativa o preenchimento do ícone (fill). Desativado = 0, Ativado = 1'
+              hint: 'enable icon fill. disabled = 0, enabled = 1'
             - label: 'Text'
               name: 'text'
               widget: 'string'
@@ -669,7 +716,7 @@ mapView: &mapView
       name: 'mapView'
       widget: 'string'
       required: true
-      hint: 'Digite o ID da view do mapa (ex: view_0, view_12, etc.) - deve corresponder a uma view cadastrada no mapbox'
+      hint: 'Enter the Map View ID (ex: view_0). It must match a Map View registered in the MapBox block.'
       collapsed: true
     - label: 'Text Color'
       name: 'txtColor'
@@ -743,13 +790,13 @@ pullquote: &pullquote
       widget: 'markdown'
       required: false
       collapsed: true
-    - label: 'Byline'
+    - label: 'Signature'
       name: 'byline'
       widget: 'string'
       required: false
       collapsed: true
 gallery: &gallery
-  label: 'Gallery'
+  label: 'Image Gallery'
   name: 'Gallery'
   widget: 'object'
   summary: '{{fields.uniqid}}'
@@ -764,6 +811,7 @@ gallery: &gallery
       name: 'uniqid'
       widget: 'string'
       required: true
+      hint: 'Gallery identifier name. Must be unique for each gallery component'
       collapsed: true
     - label: 'Description'
       name: 'description'
@@ -772,7 +820,12 @@ gallery: &gallery
       collapsed: true
     - label: 'Images'
       name: 'images'
+      # max: 8 — baseado em nhanderekoa.md (max 6 imagens por Gallery, 2 instâncias). Permite ~25% crescimento.
+      # Adicionado em Fase 1 do plano sveltia-perf para prevenir agravamento de lag.
+      # Ver .omo/plans/sveltia-perf-fase0-fase1.md Task 8.
       widget: 'list'
+      min: 0
+      max: 8
       required: false
       collapsed: true
       fields:
@@ -787,7 +840,7 @@ gallery: &gallery
           required: false
           collapsed: true
 slider: &slider
-  label: 'Slider'
+  label: 'Image Slider'
   name: 'Slider'
   widget: 'object'
   summary: '{{fields.slides}}'
@@ -815,7 +868,7 @@ slider: &slider
           required: false
           collapsed: true
 logosGroup: &logosGroup
-  label: 'Logos Group'
+  label: 'Logos Strip'
   name: 'LogosGroup'
   widget: 'object'
   summary: '{{fields.logos}}'
@@ -828,7 +881,12 @@ logosGroup: &logosGroup
       collapsed: true
     - label: 'Logos'
       name: 'logos'
+      # max: 4 — baseado em nhanderekoa.md (max 3 logos por LogosGroup, 2 instâncias). Permite ~33% crescimento.
+      # Adicionado em Fase 1 do plano sveltia-perf para prevenir agravamento de lag.
+      # Ver .omo/plans/sveltia-perf-fase0-fase1.md Task 8.
       widget: 'list'
+      min: 0
+      max: 4
       required: false
       collapsed: true
       fields:
@@ -865,7 +923,7 @@ logosGroup: &logosGroup
               required: false
               collapsed: true
 timelineBullet: &timelineBullet
-  label: 'Timeline Bullet'
+  label: 'Timeline Event Bullet'
   name: 'TimelineBullet'
   widget: 'object'
   summary: '{{fields.text}}'
@@ -876,7 +934,7 @@ timelineBullet: &timelineBullet
       widget: 'hidden'
       default: 'TimelineBullet'
       collapsed: true
-    - label: 'Text'
+    - label: 'Title'
       name: 'text'
       widget: 'string'
       required: false
@@ -941,7 +999,7 @@ card: &card
       required: false
       collapsed: true
 cardsCall: &cardsCall
-  label: 'Cards Call'
+  label: 'Action Cards'
   name: 'CardsCall'
   widget: 'object'
   summary: '{{fields.cardsCallArr}}'
@@ -1020,7 +1078,12 @@ timeline: &timeline
       collapsed: true
     - label: 'Components'
       name: 'components'
+      # max: 5 — baseado em nhanderekoa.md (14 Timelines, max 3 componentes cada). Permite ~66% crescimento.
+      # Adicionado em Fase 1 do plano sveltia-perf para prevenir agravamento de lag.
+      # Ver .omo/plans/sveltia-perf-fase0-fase1.md Task 8.
       widget: 'list'
+      min: 0
+      max: 5
       required: false
       collapsed: true
       types:
@@ -1034,7 +1097,7 @@ timeline: &timeline
         - *pullquote
         - *card
 cards: &cards
-  label: 'Cards'
+  label: 'Image Cards'
   name: 'Cards'
   widget: 'object'
   summary: '{{fields.cardsArr}}'
@@ -1047,7 +1110,12 @@ cards: &cards
       collapsed: true
     - label: 'Cards'
       name: 'cardsArr'
+      # max: 2 — baseado em nhanderekoa.md (max 1 card por Cards, 2 instâncias). Permite 2x crescimento.
+      # Adicionado em Fase 1 do plano sveltia-perf para prevenir agravamento de lag.
+      # Ver .omo/plans/sveltia-perf-fase0-fase1.md Task 8.
       widget: 'list'
+      min: 0
+      max: 2
       required: false
       collapsed: true
       fields:
@@ -1073,7 +1141,12 @@ innerColumns: &innerColumns
       fields:
         - label: 'Components'
           name: 'components'
+          # max: 2 — baseado em nhanderekoa.md (max 1 componente por coluna, 3 InnerColumns). Permite 2x crescimento.
+          # Adicionado em Fase 1 do plano sveltia-perf para prevenir agravamento de lag.
+          # Ver .omo/plans/sveltia-perf-fase0-fase1.md Task 8.
           widget: 'list'
+          min: 0
+          max: 2
           required: false
           collapsed: true
           types:
@@ -1097,7 +1170,12 @@ innerColumns: &innerColumns
       fields:
         - label: 'Components'
           name: 'components'
+          # max: 2 — baseado em nhanderekoa.md (max 1 componente por coluna, 3 InnerColumns). Permite 2x crescimento.
+          # Adicionado em Fase 1 do plano sveltia-perf para prevenir agravamento de lag.
+          # Ver .omo/plans/sveltia-perf-fase0-fase1.md Task 8.
           widget: 'list'
+          min: 0
+          max: 2
           required: false
           collapsed: true
           types:
@@ -1114,7 +1192,7 @@ innerColumns: &innerColumns
             - *gallery
             - *slider
 column: &column
-  label: 'Column'
+  label: 'Central Column'
   name: 'Column'
   widget: 'object'
   collapsed: true
@@ -1159,7 +1237,7 @@ column: &column
         - *timeline
         - *innerColumns
 columns: &columns
-  label: 'Columns'
+  label: 'Two Columns'
   name: 'Columns'
   widget: 'object'
   collapsed: true
@@ -1173,11 +1251,13 @@ columns: &columns
       name: paddingTop
       widget: boolean
       default: false
+      hint: 'enable to add spacing to the top of the component'
       collapsed: true
     - label: 'Padding Bottom'
       name: paddingBottom
       widget: boolean
       default: false
+      hint: 'enable to add spacing to the bottom of the component'
       collapsed: true
     - label: 'Invert on Mobile'
       name: invertOnMobile
@@ -1200,7 +1280,12 @@ columns: &columns
       fields:
         - label: 'Components'
           name: 'components'
+          # max: 7 — baseado em nhanderekoa.md (max 5 componentes por coluna, em 65 listas). Permite ~25% crescimento.
+          # Adicionado em Fase 1 do plano sveltia-perf para prevenir agravamento de lag.
+          # Ver .omo/plans/sveltia-perf-fase0-fase1.md Task 8.
           widget: 'list'
+          min: 0
+          max: 7
           required: false
           collapsed: true
           types:
@@ -1228,7 +1313,12 @@ columns: &columns
       fields:
         - label: 'Components'
           name: 'components'
+          # max: 7 — baseado em nhanderekoa.md (max 5 componentes por coluna, em 65 listas). Permite ~25% crescimento.
+          # Adicionado em Fase 1 do plano sveltia-perf para prevenir agravamento de lag.
+          # Ver .omo/plans/sveltia-perf-fase0-fase1.md Task 8.
           widget: 'list'
+          min: 0
+          max: 7
           required: false
           collapsed: true
           types:
@@ -1249,7 +1339,7 @@ columns: &columns
             - *timeline
             - *compare
 columnSticky: &columnSticky
-  label: 'Column Sticky'
+  label: 'Fixed Column (Title Column)'
   name: 'ColumnSticky'
   widget: 'object'
   summary: '{{fields.title}}'
@@ -1279,17 +1369,21 @@ columnSticky: &columnSticky
       widget: 'boolean'
       required: false
       default: false
+      hint: 'enable to add spacing to the top of the component'
       collapsed: true
     - label: 'Padding Bottom'
       name: 'paddingBottom'
       widget: 'boolean'
       required: false
       default: false
+      hint: 'enable to add spacing to the bottom of the component'
       collapsed: true
     - label: 'Layout'
       name: 'layout'
       widget: 'select'
-      options: ['text-bigger', 'title-bottom']
+      options:
+        - { label: 'Text-Bigger', value: 'text-bigger' }
+        - { label: 'Title-Bottom', value: 'title-bottom' }
       default: 'text-bigger'
       collapsed: true
     - label: 'Title'
@@ -1299,7 +1393,12 @@ columnSticky: &columnSticky
       collapsed: true
     - label: 'Components'
       name: 'components'
+      # max: 5 — baseado em nhanderekoa.md (max 4 componentes em 1 ColumnSticky). Permite ~25% crescimento.
+      # Adicionado em Fase 1 do plano sveltia-perf para prevenir agravamento de lag.
+      # Ver .omo/plans/sveltia-perf-fase0-fase1.md Task 8.
       widget: 'list'
+      min: 0
+      max: 5
       required: false
       collapsed: true
       types:
@@ -1334,18 +1433,19 @@ group: &group
       name: 'id'
       widget: 'string'
       required: true
+      hint: 'Component identifier name. Must be unique for each component. Use only letters and numbers.'
       collapsed: true
     - label: 'Short Title'
       name: 'shortTitle'
       widget: 'string'
       required: true
-      hint: 'Título curto (obrigatório) - será usado no futuro'
+      hint: 'Component short title.'
       collapsed: true
-    - label: 'Long Title'
+    - label: 'Title'
       name: 'longTitle'
       widget: 'string'
       required: false
-      hint: 'Título longo usado como label no menu (opcional)'
+      hint: 'Component title. This is the name that will appear in the menu if enabled'
       collapsed: true
     - label: 'Description'
       name: 'description'
@@ -1357,7 +1457,7 @@ group: &group
       name: 'showInMenu'
       widget: 'boolean'
       default: false
-      hint: 'Ativar para mostrar este grupo no menu de navegação'
+      hint: 'Enable to show this group in the menu.'
       collapsed: true
     - label: 'Animations'
       name: 'animations'
@@ -1402,7 +1502,7 @@ group: &group
       enableAlpha: true
       allowInput: true
       collapsed: true
-    - label: 'Add Background media'
+    - label: 'Add Background Media'
       name: 'backgroundMedia'
       required: false
       widget: 'list'
@@ -1434,12 +1534,19 @@ group: &group
     - label: 'Overlay'
       name: 'overlay'
       widget: 'select'
-      options: ['dark', 'light']
+      options:
+        - { label: 'Dark', value: 'dark' }
+        - { label: 'Light', value: 'light' }
       required: false
       collapsed: true
     - label: 'Components'
       name: 'components'
+      # max: 6 — baseado em nhanderekoa.md (max 3 componentes em 28 Groups, média 1.2). Cap conservador permite 2x crescimento.
+      # Adicionado em Fase 1 do plano sveltia-perf para prevenir agravamento de lag.
+      # Ver .omo/plans/sveltia-perf-fase0-fase1.md Task 8.
       widget: 'list'
+      min: 0
+      max: 6
       required: false
       collapsed: true
       types:
@@ -1462,7 +1569,7 @@ group: &group
         - *bigNumbers
         - *timeline
 cta: &cta
-  label: 'CTA'
+  label: 'Call to Action'
   name: 'Cta'
   widget: 'object'
   summary: '{{fields.shortTitle}}'
@@ -1626,11 +1733,11 @@ cta: &cta
       widget: 'markdown'
       required: false
       collapsed: true
-    - label: 'Highlighted Text'
+    - label: 'Add Highlighted Text'
       name: 'highlightedText'
       widget: 'string'
       required: false
-      hint: 'Texto destacado (exibido quando não há media)'
+      hint: 'highlighted text shown when no media is uploaded'
       collapsed: true
     - label: 'Link'
       name: 'link'
@@ -1738,7 +1845,12 @@ map: &map
       collapsed: true
     - label: 'Components'
       name: 'components'
+      # max: 56 — baseado em nhanderekoa.md (max 45 instâncias em um único Map, soma 143 em 6 maps). Permite ~25% crescimento.
+      # Adicionado em Fase 1 do plano sveltia-perf para prevenir agravamento de lag.
+      # Ver .omo/plans/sveltia-perf-fase0-fase1.md Task 8.
       widget: 'list'
+      min: 0
+      max: 56
       required: false
       collapsed: true
       types:
@@ -1757,13 +1869,28 @@ collections:
     editor:
       preview: false
     slug: '{{slug}}'
+    view_groups:
+      default: by-projeto
+      groups:
+        - name: by-projeto
+          label: Projeto
+          field: projeto
     fields:
-      - { label: 'Título', name: 'title', widget: 'string', required: false }
-      - { label: 'Slug', name: 'slug', widget: 'string', required: true }
+      - { label: 'Title', name: 'title', widget: 'string', required: false }
+      - { label: 'Slug', name: 'slug', widget: 'string', required: true, hint: 'final part of the URL that corresponds to this page (ex: documental.xyz/slug)' }
+      - { label: 'Projeto', name: 'projeto', widget: 'string', required: false, hint: 'Nome do projeto para agrupamento. Use o mesmo valor em páginas relacionadas.' }
       - *pageSettings
       - *pageTheme
       - *mapBox
-      - label: 'Componentes'
+      - label: 'Renderização como Página Própria'
+        name: 'standalone'
+        widget: 'object'
+        required: false
+        collapsed: true
+        fields:
+          - { label: 'Página acessível em /slug', name: 'enabled', widget: 'boolean', default: true, required: false, hint: 'Desative se esta página só deve existir quando embutida via Include em outra.' }
+          - { label: 'Slug da página principal', name: 'parentSlug', widget: 'string', required: false, hint: 'Slug da página principal da cadeia (opcional, metadata).' }
+      - label: 'Components'
         name: 'components'
         widget: 'list'
         required: false
@@ -1773,3 +1900,4 @@ collections:
           - *cta
           - *map
           - *spacer
+          - *include

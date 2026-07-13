@@ -12,12 +12,12 @@ mapBox: &mapBox
     - label: 'Map Style'
       name: 'style'
       widget: 'string'
-      required: true
+      required: false
       hint: 'Mapbox Style URL (ex: mapbox://styles/username/style-id)'
     - label: 'Map Token'
       name: 'token'
       widget: 'string'
-      required: true
+      required: false
       hint: 'Mapbox Access Token'
     - label: 'Map Center Longitude'
       name: 'centerLng'
@@ -30,14 +30,14 @@ mapBox: &mapBox
       widget: 'string'
       collapsed: true
       hint: 'ex: -2.53'
-      required: true
+      required: false
     - label: 'Map Zoom'
       name: 'zoom'
       widget: 'string'
       default: '2'
       collapsed: true
       hint: 'ex: 2 or 2.5'
-      required: true
+      required: false
     - label: 'Map Bearing'
       name: 'bearing'
       widget: 'string'
@@ -62,7 +62,7 @@ mapBox: &mapBox
       name: 'columnAlign'
       widget: 'select'
       options: ['left', 'center', 'right']
-      required: true
+      required: false
       default: 'left'
     - label: 'Floating Text'
       name: 'floatingText'
@@ -83,26 +83,26 @@ mapBox: &mapBox
         - label: 'View ID'
           name: 'id'
           widget: 'string'
-          required: true
+          required: false
           hint: 'View identifier name. Must be unique for each view. Use only letters, numbers, periods (.) or underscores (_), with no spaces or accents.'
         - label: 'View Center Longitude'
           name: 'centerLng'
           widget: 'string'
           collapsed: true
           hint: 'ex: -54.875'
-          required: true
+          required: false
         - label: 'View Center Latitude'
           name: 'centerLat'
           widget: 'string'
           collapsed: true
           hint: 'ex: -2.53'
-          required: true
+          required: false
         - label: 'View Zoom'
           name: 'zoom'
           widget: 'string'
           collapsed: true
           hint: 'ex: 8 or 8.5'
-          required: true
+          required: false
         - label: 'Mobile Zoom'
           name: 'mobileZoom'
           widget: 'string'
@@ -172,7 +172,7 @@ mapBox: &mapBox
               widget: 'select'
               options: ['outlined', 'rounded', 'sharp']
               default: 'outlined'
-              required: true
+              required: false
             - label: 'Icon Fill'
               name: 'iconFill'
               widget: 'boolean'
