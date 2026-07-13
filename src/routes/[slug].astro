@@ -9,7 +9,16 @@ export async function getStaticPaths() {
   const pages = await getCollection(PAGES_COLLECTION);
 
   return pages
-    .filter((page) => page.data.standalone?.enabled !== false)
+    .filter((page) => {
+      const s = page.data.standalone;
+      // undefined = no field at all (old pages) → render (backward compat)
+      // null = user unchecked in CMS → don't render
+      // { enabled: false } = explicit false → don't render
+      // { enabled: true } or { enabled: null/undefined } = render
+      if (s === undefined) return true;
+      if (s === null) return false;
+      return s.enabled !== false;
+    })
     .map((page) => ({
       params: { slug: page.id },
     }));

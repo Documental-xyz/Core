@@ -443,6 +443,7 @@ export const pagesSchema = z.object({
       enabled: z.boolean().nullable().default(true).optional(),
       parentSlug: z.string().optional(),
     })
+    .nullable()
     .optional(),
   mapbox: mapboxSchema.optional(),
   components: z.array(componentSchema).optional(),
