@@ -19,6 +19,22 @@
         _showDirectoryPicker.call(window, { ...options, mode: 'readwrite' });
     </script>
 
+    <!-- Seed Sveltia CMS default preferences: closeOnSave = false (keep editor open after save) -->
+    <script is:inline>
+      (function () {
+        const STORAGE_KEY = 'sveltia-cms.prefs';
+        try {
+          const prefs = JSON.parse(localStorage.getItem(STORAGE_KEY) || '{}');
+          if (prefs.closeOnSave === undefined) {
+            prefs.closeOnSave = false;
+            localStorage.setItem(STORAGE_KEY, JSON.stringify(prefs));
+          }
+        } catch (e) {
+          // localStorage may be unavailable (private mode, etc.) — silently skip
+        }
+      })();
+    </script>
+
     <!-- Sveltia CMS — loaded from CDN; `is:inline` keeps Vite from trying to bundle a remote URL -->
     <script is:inline src="https://unpkg.com/@sveltia/cms@0.170.0/dist/sveltia-cms.js" defer></script>
   </head>
