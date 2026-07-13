@@ -2,170 +2,169 @@
 title: Teste Layout
 slug: home
 projeto: Exemplo
-pageSettings:
-  language: pt-BR
-  link_pt_br: /home
-  link_en: /home-en
-  link_es: /home-es
-  animations: enable_all
-  direction: right
-  seoTitle: ''
-  seoDescription: ''
-  seoKeywords: []
-  seoImage: ''
-pageTheme:
-  primaryColor: '#454040'
-  secondaryColor: '#ffffff'
-  highlightColor: '#9c5454'
-  auxiliaryColor: '#3f3899'
-  displayFont: ''
-  textFont: ''
-  spacingPatterns:
-    - name: Teste
-      mobile: '10'
-      tablet: '11'
-      desktop: '12'
-mapbox:
-  type: MapBox
-  style: mapbox://styles/marlus/cjyt3uyhf15mr1cthc2942wxz
-  token: pk.eyJ1IjoibWFybHVzIiwiYSI6IjlmYlhtaEkifQ.vMxORYorRKnueDl3E5itEQ
-  centerLng: '-58.569363795'
-  centerLat: '-1.917321274'
-  zoom: '2'
-  bearing: '0'
-  pitch: '0'
-  layers: ''
-  columnAlign: left
-  floatingText: true
-  views:
-    - id: map1_view1
-      centerLng: '-58.569363795'
-      centerLat: '-1.917321274'
-      zoom: '3'
-      mobileZoom: ''
-      duration: '2000'
-      bearing: '0'
-      pitch: '0'
-      layers: |-
-        amazonia-limites
-        mineracaoamazonia
-      title: ''
-      notes: ''
-      items:
-        - icon: show_chart
-          colorIcon: '#bffa80ff'
-          typeIcon: outlined
-          iconFill: true
-          text: Legend_Text_1
-        - icon: square
-          colorIcon: '#e31c1cff'
-          typeIcon: outlined
-          iconFill: true
-          text: Legend_Text_2
-    - id: map1_view2
-      centerLng: '-58.569363795000015'
-      centerLat: '-1.917321274000017'
-      zoom: '3.5'
-      mobileZoom: ''
-      duration: '2000'
-      bearing: '0'
-      pitch: '0'
-      layers: |-
-        amazonia-limites
-        mineracaoamazonia
-        anpamazonia
-        tiamazonia
-      title: ''
-      notes: ''
-      items: []
-    - id: map1_view3
-      centerLng: '-77.921'
-      centerLat: '-2.038'
-      zoom: '6'
-      mobileZoom: ''
-      duration: '2000'
-      bearing: '0'
-      pitch: '0'
-      layers: |-
-        mineracaoamazonia
-        amazonia-limites
-        ecuador-limites
-        tiamazonia
-        anpamazonia
-      title: ''
-      notes: ''
-      items: []
-    - id: map1_view4
-      centerLng: '-78.195'
-      centerLat: '-3.893'
-      zoom: '7'
-      mobileZoom: ''
-      duration: '2000'
-      bearing: '0'
-      pitch: '0'
-      layers: |-
-        mineracaoamazonia[pais==Ecuador]
-        ecuador-limites
-        expulsion-regions
-        tiamazonia[pais==Ecuador]
-        anpamazonia[pais==Ecuador]
-      title: ''
-      notes: ''
-      items: []
-    - id: map2_view1
-      centerLng: '-78.465'
-      centerLat: '-3.584'
-      zoom: '12.2'
-      mobileZoom: ''
-      duration: '4000'
-      bearing: '0'
-      pitch: '0'
-      layers: |-
-        sat-2013
-        expulsion-regions
-        desajolos-mirador[Tipo==Comunidad]
-      title: ''
-      notes: ''
-      items: []
-    - id: map2_view2
-      centerLng: '-78.465'
-      centerLat: '-3.584'
-      zoom: '12.2'
-      mobileZoom: ''
-      duration: '4000'
-      bearing: '0'
-      pitch: '0'
-      layers: |-
-        desajolos-mirador
-        expulsion-regions
-        sat-2013
-      title: ''
-      notes: ''
-      items: []
-    - id: map2_view3
-      centerLng: '-78.465'
-      centerLat: '-3.584'
-      zoom: '12.2'
-      mobileZoom: ''
-      duration: '2000'
-      bearing: '0'
-      pitch: '0'
-      layers: |-
-        desajolos-mirador
-        expulsion-regions
-        sat-2018
-      title: ''
-      notes: ''
-      items: []
-  center:
-    lng: -54.875
-    lat: -2.53
-  mapView: ''
-standalone:
-  enabled: true
-  parentSlug: ''
-pageInclude:
-  mainSlug: ''
+standalone: true
+resources:
+  pageSettings:
+    language: pt-BR
+    link_pt_br: /home
+    link_en: /home-en
+    link_es: /home-es
+    animations: enable_all
+    direction: right
+    seoTitle: ''
+    seoDescription: ''
+    seoKeywords: []
+    seoImage: ''
+  pageTheme:
+    primaryColor: '#454040'
+    secondaryColor: '#ffffff'
+    highlightColor: '#9c5454'
+    auxiliaryColor: '#3f3899'
+    displayFont: ''
+    textFont: ''
+    spacingPatterns:
+      - name: Teste
+        mobile: '10'
+        tablet: '11'
+        desktop: '12'
+  pageInclude:
+    mainSlug: ''
+  mapbox:
+    type: MapBox
+    style: mapbox://styles/marlus/cjyt3uyhf15mr1cthc2942wxz
+    token: pk.eyJ1IjoibWFybHVzIiwiYSI6IjlmYlhtaEkifQ.vMxORYorRKnueDl3E5itEQ
+    centerLng: '-58.569363795'
+    centerLat: '-1.917321274'
+    zoom: '2'
+    bearing: '0'
+    pitch: '0'
+    layers: ''
+    columnAlign: left
+    floatingText: true
+    views:
+      - id: map1_view1
+        centerLng: '-58.569363795'
+        centerLat: '-1.917321274'
+        zoom: '3'
+        mobileZoom: ''
+        duration: '2000'
+        bearing: '0'
+        pitch: '0'
+        layers: |-
+          amazonia-limites
+          mineracaoamazonia
+        title: ''
+        notes: ''
+        items:
+          - icon: show_chart
+            colorIcon: '#bffa80ff'
+            typeIcon: outlined
+            iconFill: true
+            text: Legend_Text_1
+          - icon: square
+            colorIcon: '#e31c1cff'
+            typeIcon: outlined
+            iconFill: true
+            text: Legend_Text_2
+      - id: map1_view2
+        centerLng: '-58.569363795000015'
+        centerLat: '-1.917321274000017'
+        zoom: '3.5'
+        mobileZoom: ''
+        duration: '2000'
+        bearing: '0'
+        pitch: '0'
+        layers: |-
+          amazonia-limites
+          mineracaoamazonia
+          anpamazonia
+          tiamazonia
+        title: ''
+        notes: ''
+        items: []
+      - id: map1_view3
+        centerLng: '-77.921'
+        centerLat: '-2.038'
+        zoom: '6'
+        mobileZoom: ''
+        duration: '2000'
+        bearing: '0'
+        pitch: '0'
+        layers: |-
+          mineracaoamazonia
+          amazonia-limites
+          ecuador-limites
+          tiamazonia
+          anpamazonia
+        title: ''
+        notes: ''
+        items: []
+      - id: map1_view4
+        centerLng: '-78.195'
+        centerLat: '-3.893'
+        zoom: '7'
+        mobileZoom: ''
+        duration: '2000'
+        bearing: '0'
+        pitch: '0'
+        layers: |-
+          mineracaoamazonia[pais==Ecuador]
+          ecuador-limites
+          expulsion-regions
+          tiamazonia[pais==Ecuador]
+          anpamazonia[pais==Ecuador]
+        title: ''
+        notes: ''
+        items: []
+      - id: map2_view1
+        centerLng: '-78.465'
+        centerLat: '-3.584'
+        zoom: '12.2'
+        mobileZoom: ''
+        duration: '4000'
+        bearing: '0'
+        pitch: '0'
+        layers: |-
+          sat-2013
+          expulsion-regions
+          desajolos-mirador[Tipo==Comunidad]
+        title: ''
+        notes: ''
+        items: []
+      - id: map2_view2
+        centerLng: '-78.465'
+        centerLat: '-3.584'
+        zoom: '12.2'
+        mobileZoom: ''
+        duration: '4000'
+        bearing: '0'
+        pitch: '0'
+        layers: |-
+          desajolos-mirador
+          expulsion-regions
+          sat-2013
+        title: ''
+        notes: ''
+        items: []
+      - id: map2_view3
+        centerLng: '-78.465'
+        centerLat: '-3.584'
+        zoom: '12.2'
+        mobileZoom: ''
+        duration: '2000'
+        bearing: '0'
+        pitch: '0'
+        layers: |-
+          desajolos-mirador
+          expulsion-regions
+          sat-2018
+        title: ''
+        notes: ''
+        items: []
+    center:
+      lng: -54.875
+      lat: -2.53
+    mapView: ''
 components:
   - type: Group
     id: Grupo 01

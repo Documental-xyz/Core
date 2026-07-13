@@ -42,7 +42,12 @@ if (!entry) {
   throw new Error(`Nenhuma entrada encontrada para "${slug}".`);
 }
 
-const { title, components, mapbox, pageSettings } = entry.data;
+const { title, components } = entry.data;
+// New: pageSettings/pageTheme/mapbox live under `resources`. Old pages may
+// still have these at the top level, so fall back via `??`.
+const mapbox = entry.data.resources?.mapbox ?? entry.data.mapbox;
+const pageSettings = entry.data.resources?.pageSettings ?? entry.data.pageSettings;
+const pageTheme = entry.data.resources?.pageTheme ?? entry.data.pageTheme;
 
 const hasMapboxData = mapbox && mapbox.style && mapbox.token;
 
@@ -101,7 +106,7 @@ const mainMenu = components
   : [];
 ---
 
-<Layout title={title} pageTheme={entry.data?.pageTheme}>
+<Layout title={title} pageTheme={pageTheme}>
   <main>
     <Menu
       languages={languages}
@@ -122,7 +127,7 @@ const mainMenu = components
             const Component = componentMap[type];
             if (!Component) return null;
 
-            const themeColors = entry.data?.pageTheme || {};
+            const themeColors = pageTheme || {};
 
             const replaceColor = (color) => {
               if (color === 'Primary') return themeColors?.primaryColor;
