@@ -12,12 +12,12 @@ export async function getStaticPaths() {
     .filter((page) => {
       const s = page.data.standalone;
       // undefined = no field at all (old pages) → render (backward compat)
-      // null/true → render
-      // false = explicit false → don't render
-      // (standalone was previously an object { enabled }; now it's a flat boolean)
+      // null = user unchecked in CMS → don't render
+      // { enabled: false } = explicit false → don't render
+      // { enabled: true } or { enabled: null/undefined } = render
       if (s === undefined) return true;
       if (s === null) return false;
-      return s !== false;
+      return s.enabled !== false;
     })
     .map((page) => ({
       params: { slug: page.id },

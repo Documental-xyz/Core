@@ -13,37 +13,37 @@ collections:
           label: Projeto
           field: projeto
     fields:
-      # Preview toggle — direct boolean.
+      # Preview toggle — replaces old "Renderização como Página Própria" section.
       # Field name `standalone` is load-bearing: [slug].astro filters on
-      # `page.data.standalone !== false` and PageLayout.astro uses it for
-      # Include logic. The field is now a flat boolean (was object before).
-      - { label: 'Enable preview', name: 'standalone', widget: 'boolean', default: true, required: false, hint: 'Desative se esta página só deve existir quando embutida via Include em outra.' }
+      # `page.data.standalone?.enabled !== false` and PageLayout.astro uses it
+      # for Include logic. Only the LABEL changed to "Preview".
+      - label: 'Preview'
+        name: 'standalone'
+        widget: 'object'
+        required: false
+        collapsed: true
+        comment: 'Configurações de renderização e preview da página'
+        fields:
+          - { label: 'Página acessível em /slug', name: 'enabled', widget: 'boolean', default: true, required: false, hint: 'Desative se esta página só deve existir quando embutida via Include em outra.' }
+          - { label: 'Main page slug', name: 'parentSlug', widget: 'string', required: false, hint: 'Slug da página principal da cadeia (opcional, metadata).' }
 
       - { label: 'Title', name: 'title', widget: 'string', required: false }
       - { label: 'Slug', name: 'slug', widget: 'string', required: true, hint: 'final part of the URL that corresponds to this page (ex: documental.xyz/slug)' }
       - { label: 'Project', name: 'projeto', widget: 'string', required: false, hint: 'Nome do projeto para agrupamento. Use o mesmo valor em páginas relacionadas.' }
 
-      # Resources — wraps all toggle sections under a single "Resources" group.
+      # Resources — all toggle sections.
       # `widget: object` + `required: false` makes Sveltia render a checkbox:
       # unchecked => object saved as null; checked => subfields appear.
-      # Schema-wise this nests pageSettings/pageTheme/pageInclude/mapbox inside
-      # `resources` in the frontmatter data (see pages.ts).
-      - label: 'Resources'
-        name: 'resources'
+      - *pageSettings
+      - *pageTheme
+      - label: 'Page Include'
+        name: 'pageInclude'
         widget: 'object'
         required: false
-        collapsed: false
+        collapsed: true
         fields:
-          - *pageSettings
-          - *pageTheme
-          - label: 'Page Include'
-            name: 'pageInclude'
-            widget: 'object'
-            required: false
-            collapsed: true
-            fields:
-              - { label: 'Main page slug', name: 'mainSlug', widget: 'string', required: false, hint: 'Slug da página principal desta cadeia.' }
-          - *mapBox
+          - { label: 'Main page slug', name: 'mainSlug', widget: 'string', required: false, hint: 'Slug da página principal desta cadeia.' }
+      - *mapBox
 
       - label: 'Components'
         name: 'components'

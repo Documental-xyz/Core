@@ -2,33 +2,34 @@
 title: Teste Layout 2
 slug: home2
 projeto: Exemplo
-standalone: false
-resources:
-  pageSettings:
-    language: pt-BR
-    link_pt_br: /home
-    link_en: /home-en
-    link_es: /home-es
-    animations: enable_all
-    direction: right
-    seoTitle: ''
-    seoDescription: ''
-    seoKeywords: []
-    seoImage: ''
-  pageTheme:
-    primaryColor: '#454040'
-    secondaryColor: '#ffffff'
-    highlightColor: '#9c5454'
-    auxiliaryColor: '#3f3899'
-    displayFont: ''
-    textFont: ''
-    spacingPatterns:
-      - name: Teste
-        mobile: '10'
-        tablet: '11'
-        desktop: '12'
-  pageInclude:
-    mainSlug: ''
+pageSettings:
+  language: pt-BR
+  link_pt_br: /home
+  link_en: /home-en
+  link_es: /home-es
+  animations: enable_all
+  direction: right
+  seoTitle: ''
+  seoDescription: ''
+  seoKeywords: []
+  seoImage: ''
+pageTheme:
+  primaryColor: '#454040'
+  secondaryColor: '#ffffff'
+  highlightColor: '#9c5454'
+  auxiliaryColor: '#3f3899'
+  displayFont: ''
+  textFont: ''
+  spacingPatterns:
+    - name: Teste
+      mobile: '10'
+      tablet: '11'
+      desktop: '12'
+standalone:
+  enabled: false
+  parentSlug: ''
+pageInclude:
+  mainSlug: ''
 components:
   - type: Group
     id: Grupo 09

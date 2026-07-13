@@ -435,66 +435,53 @@ const componentSchema = z.object({
   imageRight: z.string().optional(),
 });
 
-const pageSettingsSchema = z.object({
-  type: z.string().optional(),
-  language: z.enum(['pt-BR', 'en', 'es']).optional(),
-  link_pt_br: z.string().optional(),
-  link_en: z.string().optional(),
-  link_es: z.string().optional(),
-  direction: z.enum(['left', 'right']).optional(),
-  seoTitle: z.string().optional(),
-  seoDescription: z.string().optional(),
-  seoKeywords: z.array(z.object({ keyword: z.string() })).optional(),
-  seoImage: z.string().optional(),
-  animations: z
-    .enum(['enable_all', 'disable_all', 'custom'])
-    .optional()
-    .default('enable_all'),
-});
-
-const pageThemeSchema = z.object({
-  primaryColor: z.string().optional(),
-  secondaryColor: z.string().optional(),
-  highlightColor: z.string().optional(),
-  auxiliaryColor: z.string().optional(),
-  displayFont: z.string().optional(),
-  textFont: z.string().optional(),
-  spacingPatterns: z
-    .array(
-      z.object({
-        name: z.string(),
-        mobile: z.string(),
-        tablet: z.string(),
-        desktop: z.string(),
-      })
-    )
-    .optional(),
-});
-
-const pageIncludeSchema = z.object({
-  mainSlug: z.string().optional(),
-});
-
-const resourcesSchema = z.object({
-  pageSettings: pageSettingsSchema.optional(),
-  pageTheme: pageThemeSchema.optional(),
-  pageInclude: pageIncludeSchema.optional(),
-  mapbox: mapboxSchema.optional(),
-});
-
 export const pagesSchema = z.object({
   title: z.string().optional(),
   projeto: z.string().optional(),
-  // Flat boolean toggle (was object { enabled, parentSlug } before).
-  // undefined = no field → render; null/true → render; false → don't render.
-  standalone: z.boolean().nullable().default(true).optional(),
-  components: z.array(componentSchema).optional(),
-  // New: pageSettings/pageTheme/pageInclude/mapbox nested under `resources`.
-  resources: resourcesSchema.nullable().optional(),
-  // Backward compat: old pages may still have these at the top level.
+  standalone: z
+    .object({
+      enabled: z.boolean().nullable().default(true).optional(),
+      parentSlug: z.string().optional(),
+    })
+    .nullable()
+    .optional(),
   mapbox: mapboxSchema.optional(),
-  pageSettings: pageSettingsSchema.optional(),
-  pageTheme: pageThemeSchema.optional(),
+  components: z.array(componentSchema).optional(),
+  pageSettings: z
+    .object({
+      type: z.string().optional(),
+      language: z.enum(['pt-BR', 'en', 'es']).optional(),
+      link_pt_br: z.string().optional(),
+      link_en: z.string().optional(),
+      link_es: z.string().optional(),
+      direction: z.enum(['left', 'right']).optional(),
+      seoTitle: z.string().optional(),
+      seoDescription: z.string().optional(),
+      seoKeywords: z.array(z.object({ keyword: z.string() })).optional(),
+      seoImage: z.string().optional(),
+      animations: z.enum(['enable_all', 'disable_all', 'custom']).optional().default('enable_all'),
+    })
+    .optional(),
+  pageTheme: z
+    .object({
+      primaryColor: z.string().optional(),
+      secondaryColor: z.string().optional(),
+      highlightColor: z.string().optional(),
+      auxiliaryColor: z.string().optional(),
+      displayFont: z.string().optional(),
+      textFont: z.string().optional(),
+      spacingPatterns: z
+        .array(
+          z.object({
+            name: z.string(),
+            mobile: z.string(),
+            tablet: z.string(),
+            desktop: z.string(),
+          })
+        )
+        .optional(),
+    })
+    .optional(),
 });
 
 export {
@@ -514,8 +501,4 @@ export {
   slideSchema,
   galleryImageSchema,
   timelineBulletSchema,
-  pageSettingsSchema,
-  pageThemeSchema,
-  pageIncludeSchema,
-  resourcesSchema,
 };
