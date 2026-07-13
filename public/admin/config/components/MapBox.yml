@@ -1,8 +1,9 @@
 mapBox: &mapBox
   label: 'MapBox'
   name: 'mapbox'
-  collapsed: true
   widget: 'object'
+  required: false
+  collapsed: true
   summary: '{{fields.style}}'
   fields:
     - label: 'Type'

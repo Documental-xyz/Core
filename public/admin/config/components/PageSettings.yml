@@ -1,8 +1,9 @@
 pageSettings: &pageSettings
   label: 'Page Settings'
   name: 'pageSettings'
-  collapsed: true
   widget: 'object'
+  required: false
+  collapsed: true
   fields:
     - label: 'Language'
       name: 'language'

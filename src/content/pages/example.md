@@ -164,6 +164,8 @@ mapbox:
 standalone:
   enabled: true
   parentSlug: ''
+pageInclude:
+  mainSlug: ''
 components:
   - type: Group
     id: Grupo 01
@@ -650,6 +652,6 @@ components:
     layout: default
   - type: Include
     id: id1
-    shortTitle: ''
+    shortTitle: home22
     slug: home2
 ---

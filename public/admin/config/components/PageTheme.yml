@@ -1,8 +1,9 @@
 pageTheme: &pageTheme
   label: 'Page Theme'
   name: 'pageTheme'
-  collapsed: true
   widget: 'object'
+  required: false
+  collapsed: true
   fields:
     - label: 'Primary Color'
       name: 'primaryColor'

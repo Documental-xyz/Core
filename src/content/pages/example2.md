@@ -28,6 +28,8 @@ pageTheme:
 standalone:
   enabled: false
   parentSlug: ''
+pageInclude:
+  mainSlug: ''
 components:
   - type: Group
     id: Grupo 09
