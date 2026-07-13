@@ -11,3 +11,9 @@ media_libraries:
 
 media_folder: ${MEDIA_FOLDER}
 public_folder: ${PUBLIC_FOLDER}
+
+logo:
+  src: /admin/logo.svg
+  show_in_header: true
+
+app_title: Documental
