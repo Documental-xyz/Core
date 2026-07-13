@@ -11,6 +11,12 @@ media_libraries:
 
 media_folder: public/uploads
 public_folder: uploads
+
+logo:
+  src: /admin/logo.svg
+  show_in_header: true
+
+app_title: Documental
 pageSettings: &pageSettings
   label: 'Page Settings'
   name: 'pageSettings'
