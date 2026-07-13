@@ -241,6 +241,8 @@ const componentSchema = z.object({
   showInMenu: z.boolean().optional(),
   animations: z.boolean().optional().default(true),
   id: z.string().optional(),
+  targetSlug: z.string().optional(),
+  slug: z.string().optional(), // Include component target slug (CMS field name)
 
   // Atributos específicos do CTA
   highlightedText: z.string().optional(),
@@ -435,6 +437,13 @@ const componentSchema = z.object({
 
 export const pagesSchema = z.object({
   title: z.string().optional(),
+  projeto: z.string().optional(),
+  standalone: z
+    .object({
+      enabled: z.boolean().nullable().default(true).optional(),
+      parentSlug: z.string().optional(),
+    })
+    .optional(),
   mapbox: mapboxSchema.optional(),
   components: z.array(componentSchema).optional(),
   pageSettings: z

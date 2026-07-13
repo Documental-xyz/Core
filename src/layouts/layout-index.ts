@@ -15,6 +15,7 @@ import GalleryLayout from './components/GalleryLayout.astro';
 import GroupLayout from './components/GroupLayout.astro';
 import HtmlEmbedLayout from './components/HtmlEmbedLayout.astro';
 import ImageBlockLayout from './components/ImageBlockLayout.astro';
+import IncludeLayout from './components/IncludeLayout.astro';
 import InnerColumnsLayout from './components/InnerColumnsLayout.astro';
 import LogosGroupLayout from './components/LogosGroupLayout.astro';
 import MapLayout from './components/MapLayout.astro';
@@ -45,6 +46,7 @@ export const layoutMap: Record<string, AstroComponentFactory> = {
   Group: GroupLayout,
   HtmlEmbed: HtmlEmbedLayout,
   ImageBlock: ImageBlockLayout,
+  Include: IncludeLayout,
   InnerColumns: InnerColumnsLayout,
   LogosGroup: LogosGroupLayout,
   Map: MapLayout,

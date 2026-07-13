@@ -6,12 +6,27 @@ collections:
     editor:
       preview: false
     slug: '{{slug}}'
+    view_groups:
+      default: by-projeto
+      groups:
+        - name: by-projeto
+          label: Projeto
+          field: projeto
     fields:
       - { label: 'Title', name: 'title', widget: 'string', required: false }
       - { label: 'Slug', name: 'slug', widget: 'string', required: true, hint: 'final part of the URL that corresponds to this page (ex: documental.xyz/slug)' }
+      - { label: 'Projeto', name: 'projeto', widget: 'string', required: false, hint: 'Nome do projeto para agrupamento. Use o mesmo valor em páginas relacionadas.' }
       - *pageSettings
       - *pageTheme
       - *mapBox
+      - label: 'Renderização como Página Própria'
+        name: 'standalone'
+        widget: 'object'
+        required: false
+        collapsed: true
+        fields:
+          - { label: 'Página acessível em /slug', name: 'enabled', widget: 'boolean', default: true, required: false, hint: 'Desative se esta página só deve existir quando embutida via Include em outra.' }
+          - { label: 'Slug da página principal', name: 'parentSlug', widget: 'string', required: false, hint: 'Slug da página principal da cadeia (opcional, metadata).' }
       - label: 'Components'
         name: 'components'
         widget: 'list'
@@ -22,3 +37,4 @@ collections:
           - *cta
           - *map
           - *spacer
+          - *include

@@ -8,9 +8,11 @@ export async function getStaticPaths() {
   const { getCollection } = await import('astro:content');
   const pages = await getCollection(PAGES_COLLECTION);
 
-  return pages.map((page) => ({
-    params: { slug: page.id },
-  }));
+  return pages
+    .filter((page) => page.data.standalone?.enabled !== false)
+    .map((page) => ({
+      params: { slug: page.id },
+    }));
 }
 ---
 

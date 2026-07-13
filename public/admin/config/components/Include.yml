@@ -1,0 +1,30 @@
+include: &include
+  label: 'Include'
+  name: 'Include'
+  widget: 'object'
+  summary: '{{fields.slug}}'
+  collapsed: true
+  fields:
+    - label: 'Type'
+      name: 'type'
+      widget: 'hidden'
+      default: 'Include'
+      collapsed: true
+    - label: 'ID'
+      name: 'id'
+      widget: 'string'
+      required: false
+      hint: 'Component identifier name. Must be unique for each component. Use only letters and numbers.'
+      collapsed: true
+    - label: 'Short Title'
+      name: 'shortTitle'
+      widget: 'string'
+      required: false
+      hint: 'Component short title.'
+      collapsed: true
+    - label: 'Slug da página alvo'
+      name: 'slug'
+      widget: 'string'
+      required: false
+      hint: 'Slug da página cujo conteúdo será incluído aqui.'
+      collapsed: true

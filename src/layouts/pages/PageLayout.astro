@@ -16,6 +16,7 @@ import ChartPercentage from '../../components/ChartPercentage.astro';
 import Column from '../../components/Column.astro';
 import Columns from '../../components/Columns.astro';
 import ImageBlock from '../../components/ImageBlock.astro';
+import Include from '../../components/Include.astro';
 import InnerColumns from '../../components/InnerColumns.astro';
 import LogosGroup from '../../components/LogosGroup.astro';
 import VideoEmbed from '../../components/VideoEmbed.astro';
@@ -57,6 +58,7 @@ const componentMap = {
   Column,
   Columns,
   ImageBlock,
+  Include,
   InnerColumns,
   LogosGroup,
   VideoEmbed,
@@ -109,7 +111,11 @@ const mainMenu = components
     {hasMapboxData && <MapBox mapboxData={mapbox} />}
     {
       (async function() {
-        async function renderComponents(componentList) {
+        async function renderComponents(
+          componentList,
+          depth = 0,
+          ancestorSlugs = new Set()
+        ) {
           if (!componentList) return [];
 
           const results = await Promise.all(componentList.map(async ({ type, components: childComponents, txtColor, bgColor, ...restProps }) => {
@@ -139,10 +145,10 @@ const mainMenu = components
               return (
                 <InnerColumns>
                   <Fragment slot="column-1">
-                    { renderComponents(column1.components)}
+                    { renderComponents(column1.components, depth, ancestorSlugs)}
                   </Fragment>
                   <Fragment slot="column-2">
-                    {renderComponents(column2.components)}
+                    {renderComponents(column2.components, depth, ancestorSlugs)}
                   </Fragment>
                 </InnerColumns>
               );
@@ -159,13 +165,50 @@ const mainMenu = components
               return (
                 <Columns paddingTop={paddingTop} paddingBottom={paddingBottom} invertOnMobile={invertOnMobile} alignment={alignment}>
                   <Fragment slot="column-1">
-                    { renderComponents(column1.components)}
+                    { renderComponents(column1.components, depth, ancestorSlugs)}
                   </Fragment>
                   <Fragment slot="column-2">
-                    {renderComponents(column2.components)}
+                    {renderComponents(column2.components, depth, ancestorSlugs)}
                   </Fragment>
                 </Columns>
               );
+            }
+
+            if (type === 'Include') {
+              const targetSlug = restProps.slug || restProps.targetSlug;
+
+              // DEPTH CHECK — depth-1 limit
+              if (depth >= 1) {
+                throw new Error(`chamada de conteúdo em loop não é permitido`);
+              }
+
+              // LOOP CHECK — visited set
+              if (ancestorSlugs.has(targetSlug)) {
+                throw new Error(`chamada de conteúdo em loop não é permitido`);
+              }
+
+              try {
+                const targetEntry = await getEntry(PAGES_COLLECTION, targetSlug);
+                if (!targetEntry) {
+                  // Slug not found — render fallback inline
+                  return <Include fallbackMessage={`Conteúdo de ${targetSlug} não encontrado.`} />;
+                }
+
+                // Use targetEntry.id for ancestor set (not targetSlug) because getEntry
+                // matches by id internally. This handles non-ASCII filename edge case.
+                const newAncestors = new Set(ancestorSlugs);
+                newAncestors.add(targetEntry.id);
+                const targetComponents = targetEntry.data.components || [];
+                return (
+                  <Include>
+                    {await renderComponents(targetComponents, depth + 1, newAncestors)}
+                  </Include>
+                );
+              } catch (e) {
+                if (e instanceof Error && e.message.includes('loop não é permitido')) throw e;
+                console.error(`[Include] Erro ao carregar ${targetSlug}:`, e);
+                return <Include fallbackMessage={`Conteúdo de ${targetSlug} não encontrado.`} />;
+              }
             }
 
             let Layout = layoutMap[type] || null;
@@ -173,7 +216,7 @@ const mainMenu = components
               console.warn(`[Documental] No layout found for type="${type}"`);
             }
 
-            const children = childComponents ? await renderComponents(childComponents) : [];
+            const children = childComponents ? await renderComponents(childComponents, depth, ancestorSlugs) : [];
 
             if (Layout) {
               return (
@@ -193,7 +236,7 @@ const mainMenu = components
           return results;
         }
   
-        return await renderComponents(components);
+        return await renderComponents(components, 0, new Set([entry.id]));
       })()
     }
   </main>

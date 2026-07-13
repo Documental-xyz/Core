@@ -1,0 +1,17 @@
+---
+interface Props {
+  fallbackMessage?: string;
+}
+const { fallbackMessage } = Astro.props;
+---
+
+{fallbackMessage ? (
+  <div class="include-fallback" role="note" style="padding: 0.75rem 1rem; margin: 0.5rem 0; border-left: 3px solid currentColor; opacity: 0.7; font-style: italic; font-size: 0.9em;">
+    {fallbackMessage}
+  </div>
+) : (
+  <div class="include-wrapper">
+    <slot />
+  </div>
+)
+

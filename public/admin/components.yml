@@ -5,6 +5,7 @@ components:
   - components/Text.yml
   - components/Button.yml
   - components/ImageBlock.yml
+  - components/Include.yml
   - components/VideoEmbed.yml
   - components/HtmlEmbed.yml
   - components/ChartBar.yml
