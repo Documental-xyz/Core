@@ -47,6 +47,8 @@ collections:
         widget: 'list'
         required: false
         collapsed: true
+        min: 0
+        max: 15
         types:
           - *group
           - *cta
