@@ -13,19 +13,7 @@ collections:
           label: Projeto
           field: projeto
     fields:
-      # Preview toggle — replaces old "Renderização como Página Própria" section.
-      # Field name `standalone` is load-bearing: [slug].astro filters on
-      # `page.data.standalone?.enabled !== false` and PageLayout.astro uses it
-      # for Include logic. Only the LABEL changed to "Preview".
-      - label: 'Preview'
-        name: 'standalone'
-        widget: 'object'
-        required: false
-        collapsed: true
-        comment: 'Configurações de renderização e preview da página'
-        fields:
-          - { label: 'Página acessível em /slug', name: 'enabled', widget: 'boolean', default: true, required: false, hint: 'Desative se esta página só deve existir quando embutida via Include em outra.' }
-          - { label: 'Main page slug', name: 'parentSlug', widget: 'string', required: false, hint: 'Slug da página principal da cadeia (opcional, metadata).' }
+      - { label: 'Preview', name: 'standalone', widget: 'boolean', default: true, required: false, hint: 'Desative se esta página só deve existir quando embutida via Include em outra.' }
 
       - { label: 'Title', name: 'title', widget: 'string', required: false }
       - { label: 'Slug', name: 'slug', widget: 'string', required: true, hint: 'final part of the URL that corresponds to this page (ex: documental.xyz/slug)' }

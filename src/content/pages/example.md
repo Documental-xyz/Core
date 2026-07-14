@@ -161,9 +161,7 @@ modules:
       lng: -54.875
       lat: -2.53
     mapView: ''
-standalone:
-  enabled: true
-  parentSlug: ''
+standalone: true
 pageInclude:
   mainSlug: ''
 components:

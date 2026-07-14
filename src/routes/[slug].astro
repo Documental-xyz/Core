@@ -11,13 +11,13 @@ export async function getStaticPaths() {
   return pages
     .filter((page) => {
       const s = page.data.standalone;
-      // undefined = no field at all (old pages) → render (backward compat)
-      // null = user unchecked in CMS → don't render
-      // { enabled: false } = explicit false → don't render
-      // { enabled: true } or { enabled: null/undefined } = render
+      // undefined = no field (old pages) → render (backward compat)
+      // null = CMS unchecked → don't render
+      // false = explicit → don't render
+      // true = render
       if (s === undefined) return true;
       if (s === null) return false;
-      return s.enabled !== false;
+      return s !== false;
     })
     .map((page) => ({
       params: { slug: page.id },

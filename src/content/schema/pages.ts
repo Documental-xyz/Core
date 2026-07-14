@@ -438,13 +438,7 @@ const componentSchema = z.object({
 export const pagesSchema = z.object({
   title: z.string().optional(),
   projeto: z.string().optional(),
-  standalone: z
-    .object({
-      enabled: z.boolean().nullable().default(true).optional(),
-      parentSlug: z.string().optional(),
-    })
-    .nullable()
-    .optional(),
+  standalone: z.boolean().nullable().default(true).optional(),
   modules: z.array(mapboxSchema).optional(),
   components: z.array(componentSchema).optional(),
   pageSettings: z

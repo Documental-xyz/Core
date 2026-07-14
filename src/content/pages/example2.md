@@ -25,9 +25,7 @@ pageTheme:
       mobile: '10'
       tablet: '11'
       desktop: '12'
-standalone:
-  enabled: false
-  parentSlug: ''
+standalone: false
 pageInclude:
   mainSlug: ''
 components:
