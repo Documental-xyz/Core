@@ -1,7 +1,7 @@
 ---
 standalone: true
 title: Teste Layout
-slug: home2
+slug: home
 projeto: Exemplo
 pageSettings:
   language: pt-BR
