@@ -12,7 +12,6 @@ components:
   - components/ChartPercentage.yml
   - components/BigNumbers.yml
   - components/Compare.yml
-  - components/MapBox.yml
   - components/MapView.yml
   - components/Spacer.yml
   - components/Pullquote.yml

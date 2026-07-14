@@ -142,7 +142,7 @@ function readIfExists(p: string): string | null {
 /**
  * Build the merged YAML text by concatenating fragments in the canonical
  * order: main (template preferred) → components (per `components.yml`) →
- * collections (alphabetical).
+ * modules (per `modules.yml`) → collections (alphabetical).
  *
  * Exposed for testability.
  */
@@ -177,7 +177,20 @@ export async function buildMergedYamlText(
       : [];
   }
 
-  // 3. Collections (alphabetical — matches original build-config.js behavior).
+  // 3. Modules in the order declared by modules.yml.
+  const modulesManifestPath = path.join(adminDir, 'modules.yml');
+  const modulesManifestRaw = readIfExists(modulesManifestPath);
+  let moduleOrder: string[] = [];
+  if (modulesManifestRaw) {
+    const moduleManifest = yaml.load(modulesManifestRaw) as {
+      modules?: string[];
+    };
+    moduleOrder = Array.isArray(moduleManifest?.modules)
+      ? (moduleManifest!.modules as string[])
+      : [];
+  }
+
+  // 4. Collections (alphabetical — matches original build-config.js behavior).
   const collectionFiles = await glob(
     path.join(configDir, 'collections/*.yml').replace(/\\/g, '/')
   );
@@ -193,6 +206,17 @@ export async function buildMergedYamlText(
     if (content === null) {
       console.warn(
         `[documental-yaml-merge] component file listed in components.yml not found: ${rel}`
+      );
+      continue;
+    }
+    parts.push(content.replace(/\s+$/, ''));
+  }
+  for (const rel of moduleOrder) {
+    const full = path.join(configDir, rel);
+    const content = readIfExists(full);
+    if (content === null) {
+      console.warn(
+        `[documental-yaml-merge] module file listed in modules.yml not found: ${rel}`
       );
       continue;
     }

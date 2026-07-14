@@ -119,7 +119,7 @@ function processLayersText(
 
 // Schema para MapBox no nível da página
 const mapboxSchema = z.object({
-  type: z.literal('MapBox').optional(),
+  type: z.literal('MapBox'),
   columnAlign: z.enum(['left', 'center', 'right']).optional(),
   floatingText: z.boolean().optional(),
   style: z.string().optional(),
@@ -445,7 +445,7 @@ export const pagesSchema = z.object({
     })
     .nullable()
     .optional(),
-  mapbox: mapboxSchema.optional(),
+  modules: z.array(mapboxSchema).optional(),
   components: z.array(componentSchema).optional(),
   pageSettings: z
     .object({

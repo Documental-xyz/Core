@@ -33,12 +33,17 @@ describe('yaml-merge-plugin', () => {
     mainYml?: string;
     componentsOrder?: string[];
     componentFiles?: Record<string, string>;
+    modulesOrder?: string[];
+    moduleFiles?: Record<string, string>;
     collectionFiles?: Record<string, string>;
   }) {
     fs.mkdirSync(path.join(tmpRoot, 'public/admin/config/components'), {
       recursive: true,
     });
     fs.mkdirSync(path.join(tmpRoot, 'public/admin/config/collections'), {
+      recursive: true,
+    });
+    fs.mkdirSync(path.join(tmpRoot, 'public/admin/config/modules'), {
       recursive: true,
     });
 
@@ -63,6 +68,18 @@ describe('yaml-merge-plugin', () => {
     for (const [name, content] of Object.entries(opts.componentFiles ?? {})) {
       fs.writeFileSync(
         path.join(tmpRoot, `public/admin/config/components/${name}`),
+        content
+      );
+    }
+    if (opts.modulesOrder) {
+      fs.writeFileSync(
+        path.join(tmpRoot, 'public/admin/modules.yml'),
+        `modules:\n${opts.modulesOrder.map((m) => `  - ${m}`).join('\n')}\n`
+      );
+    }
+    for (const [name, content] of Object.entries(opts.moduleFiles ?? {})) {
+      fs.writeFileSync(
+        path.join(tmpRoot, `public/admin/config/modules/${name}`),
         content
       );
     }
@@ -416,6 +433,90 @@ collections:
       'utf8'
     );
     expect(out).toContain('text:');
+    warnSpy.mockRestore();
+  });
+
+  it('places modules between components and collections in output', async () => {
+    // All four fragment types present, each with a unique marker string.
+    // The merged output must have them in order:
+    //   main < component < module < collection (by string index).
+    fixture({
+      mainTemplate: 'backend:\n  name: github\nmainMarker: MAIN\n',
+      componentsOrder: ['components/Text.yml'],
+      componentFiles: {
+        'Text.yml': 'componentMarker: COMPONENT\n',
+      },
+      modulesOrder: ['modules/Map.yml'],
+      moduleFiles: {
+        'Map.yml': 'moduleMarker: MODULE\n',
+      },
+      collectionFiles: {
+        'pages.yml': 'collections:\n  - name: pages\n    collectionMarker: COLLECTION\n',
+      },
+    });
+    await runPlugin({ repo: 'org/repo' });
+    const out = fs.readFileSync(
+      path.join(tmpRoot, 'public/admin/config.yml'),
+      'utf8'
+    );
+    const mainIdx = out.indexOf('mainMarker');
+    const compIdx = out.indexOf('componentMarker');
+    const modIdx = out.indexOf('moduleMarker');
+    const collIdx = out.indexOf('collectionMarker');
+    // All markers present.
+    expect(mainIdx).toBeGreaterThan(-1);
+    expect(compIdx).toBeGreaterThan(-1);
+    expect(modIdx).toBeGreaterThan(-1);
+    expect(collIdx).toBeGreaterThan(-1);
+    // Order: main < component < module < collection.
+    expect(mainIdx).toBeLessThan(compIdx);
+    expect(compIdx).toBeLessThan(modIdx);
+    expect(modIdx).toBeLessThan(collIdx);
+  });
+
+  it('respects modules.yml manifest order', async () => {
+    // Two module files listed in a deliberate (non-alphabetical) order in
+    // modules.yml. The merged output must preserve that declared order.
+    fixture({
+      mainTemplate: 'backend:\n  name: github\n',
+      modulesOrder: ['modules/Second.yml', 'modules/First.yml'],
+      moduleFiles: {
+        'First.yml': 'firstKey: &firstKey\n  label: First\n',
+        'Second.yml': 'secondKey: &secondKey\n  label: Second\n',
+      },
+    });
+    await runPlugin({ repo: 'org/repo' });
+    const out = fs.readFileSync(
+      path.join(tmpRoot, 'public/admin/config.yml'),
+      'utf8'
+    );
+    const secondIdx = out.indexOf('secondKey:');
+    const firstIdx = out.indexOf('firstKey:');
+    expect(secondIdx).toBeGreaterThan(-1);
+    expect(firstIdx).toBeGreaterThan(-1);
+    // Second listed before First in the output (matches modules.yml order).
+    expect(secondIdx).toBeLessThan(firstIdx);
+  });
+
+  it('warns on missing module file listed in modules.yml', async () => {
+    const warnSpy = vi.spyOn(console, 'warn').mockImplementation(() => {});
+    fixture({
+      mainTemplate: 'backend:\n  name: github\n',
+      modulesOrder: ['modules/Missing.yml', 'modules/Map.yml'],
+      moduleFiles: {
+        'Map.yml': 'map: &map\n  label: Map\n',
+      },
+    });
+    await expect(runPlugin({ repo: 'org/repo' })).resolves.not.toThrow();
+    expect(warnSpy).toHaveBeenCalledWith(
+      expect.stringContaining('modules/Missing.yml')
+    );
+    // Still produced output with the present module fragment.
+    const out = fs.readFileSync(
+      path.join(tmpRoot, 'public/admin/config.yml'),
+      'utf8'
+    );
+    expect(out).toContain('map:');
     warnSpy.mockRestore();
   });
 });

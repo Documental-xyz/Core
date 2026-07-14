@@ -42,7 +42,9 @@ if (!entry) {
   throw new Error(`Nenhuma entrada encontrada para "${slug}".`);
 }
 
-const { title, components, mapbox, pageSettings } = entry.data;
+const { title, components, pageSettings } = entry.data;
+
+const mapbox = entry.data.modules?.find((m: any) => m.type === 'MapBox') || null;
 
 const hasMapboxData = mapbox && mapbox.style && mapbox.token;
 

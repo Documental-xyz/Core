@@ -43,7 +43,14 @@ collections:
         collapsed: true
         fields:
           - { label: 'Main page slug', name: 'mainSlug', widget: 'string', required: false, hint: 'Slug da página principal desta cadeia.' }
-      - *mapBox
+      - label: 'Modules'
+        name: 'modules'
+        widget: 'list'
+        required: false
+        collapsed: true
+        label_singular: 'Module'
+        types:
+          - *mapBox
 
       - label: 'Components'
         name: 'components'
