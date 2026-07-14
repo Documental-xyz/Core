@@ -1,6 +1,6 @@
 mapBox: &mapBox
   label: 'MapBox'
-  name: 'mapbox'
+  name: 'MapBox'
   widget: 'object'
   required: false
   collapsed: true
