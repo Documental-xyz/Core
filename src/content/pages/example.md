@@ -1,11 +1,11 @@
 ---
 standalone: true
 title: Teste Layout
-slug: home
+slug: home2
 projeto: Exemplo
 pageSettings:
   language: pt-BR
-  link_pt_br: /home
+  link_pt_br: /home3
   link_en: /home-en
   link_es: /home-es
   animations: enable_all
