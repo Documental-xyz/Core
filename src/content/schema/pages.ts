@@ -476,6 +476,12 @@ export const pagesSchema = z.object({
         .optional(),
     })
     .optional(),
+  pageInclude: z
+    .object({
+      mainSlug: z.string().optional(),
+    })
+    .optional()
+    .nullable(),
 });
 
 export {
