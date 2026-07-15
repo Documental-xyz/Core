@@ -646,5 +646,5 @@ components:
   - type: Include
     id: id1
     shortTitle: home22
-    slug: home2
+    slug: example2
 ---

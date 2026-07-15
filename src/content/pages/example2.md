@@ -1,33 +1,12 @@
 ---
+standalone: false
 title: Teste Layout 2
 slug: home2
 projeto: Exemplo
-pageSettings:
-  language: pt-BR
-  link_pt_br: /home
-  link_en: /home-en
-  link_es: /home-es
-  animations: enable_all
-  direction: right
-  seoTitle: ''
-  seoDescription: ''
-  seoKeywords: []
-  seoImage: ''
-pageTheme:
-  primaryColor: '#454040'
-  secondaryColor: '#ffffff'
-  highlightColor: '#9c5454'
-  auxiliaryColor: '#3f3899'
-  displayFont: ''
-  textFont: ''
-  spacingPatterns:
-    - name: Teste
-      mobile: '10'
-      tablet: '11'
-      desktop: '12'
-standalone: false
+pageSettings: null
+pageTheme: null
 pageInclude:
-  mainSlug: ''
+  mainSlug: example
 modules:
   - type: MapBox
     style: mapbox://styles/marlus/cjyt3uyhf15mr1cthc2942wxz

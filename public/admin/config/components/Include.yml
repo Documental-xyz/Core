@@ -10,21 +10,17 @@ include: &include
       widget: 'hidden'
       default: 'Include'
       collapsed: true
-    - label: 'ID'
-      name: 'id'
-      widget: 'string'
-      required: false
-      hint: 'Component identifier name. Must be unique for each component. Use only letters and numbers.'
-      collapsed: true
-    - label: 'Short Title'
-      name: 'shortTitle'
-      widget: 'string'
-      required: false
-      hint: 'Component short title.'
-      collapsed: true
     - label: 'Slug da página alvo'
       name: 'slug'
-      widget: 'string'
+      widget: 'relation'
+      collection: 'pages'
+      value_field: '{{slug}}'
+      search_fields: ['title', 'slug']
+      display_fields: ['title', 'slug']
       required: false
-      hint: 'Slug da página cujo conteúdo será incluído aqui.'
+      hint: 'Selecione a página cujo conteúdo será incluído aqui.'
+      filters:
+        - field: slug
+          values: ['{{slug}}']
+          exclude: true
       collapsed: true
