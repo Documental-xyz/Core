@@ -1,6 +1,7 @@
 ---
 import { getEntry } from 'astro:content';
 import { PAGES_COLLECTION } from '../../lib/collections';
+import { mergeWithFallback } from '../../lib/config-merge';
 
 import Layout from "./Layout.astro";
 import MapBox from '../../components/MapBox.astro';
@@ -42,9 +43,34 @@ if (!entry) {
   throw new Error(`Nenhuma entrada encontrada para "${slug}".`);
 }
 
-const { title, components, pageSettings } = entry.data;
+const { title, components } = entry.data;
 
-const mapbox = entry.data.modules?.find((m: any) => m.type === 'MapBox') || null;
+let pageSettings = entry.data.pageSettings;
+let pageTheme = entry.data?.pageTheme;
+let mapbox = entry.data.modules?.find((m: any) => m.type === 'MapBox') || null;
+
+// pageInclude.mainSlug inheritance — FALLBACK merge from parent page.
+// Activates only on sub-pages rendering on their own route (standalone:true).
+// Own configs always win; parent only fills gaps. See src/lib/config-merge.ts
+// and .omo/notepads/page-include-config-inheritance/learnings.md (Task 3).
+const mainSlug = entry.data?.pageInclude?.mainSlug;
+if (mainSlug) {  // truthy check — '', null, undefined → no inheritance
+  let parentEntry;
+  try {
+    parentEntry = await getEntry(PAGES_COLLECTION, mainSlug);
+  } catch {
+    parentEntry = undefined;  // slug not found — silently ignore
+  }
+  if (parentEntry) {
+    pageSettings = mergeWithFallback(pageSettings, parentEntry.data?.pageSettings, {
+      excludeKeys: ['animations'],
+    });
+    pageTheme = mergeWithFallback(pageTheme, parentEntry.data?.pageTheme);
+    if (!mapbox) {
+      mapbox = parentEntry.data?.modules?.find((m: any) => m.type === 'MapBox') || null;
+    }
+  }
+}
 
 const hasMapboxData = mapbox && mapbox.style && mapbox.token;
 
@@ -103,7 +129,7 @@ const mainMenu = components
   : [];
 ---
 
-<Layout title={title} pageTheme={entry.data?.pageTheme}>
+<Layout title={title} pageTheme={pageTheme}>
   <main>
     <Menu
       languages={languages}
@@ -124,7 +150,7 @@ const mainMenu = components
             const Component = componentMap[type];
             if (!Component) return null;
 
-            const themeColors = entry.data?.pageTheme || {};
+            const themeColors = pageTheme || {};
 
             const replaceColor = (color) => {
               if (color === 'Primary') return themeColors?.primaryColor;
