@@ -1902,7 +1902,19 @@ collections:
         required: false
         collapsed: true
         fields:
-          - { label: 'Main page slug', name: 'mainSlug', widget: 'string', required: false, hint: 'Slug da página principal desta cadeia.' }
+          - label: 'Main page slug'
+            name: 'mainSlug'
+            widget: 'relation'
+            collection: 'pages'
+            value_field: '{{slug}}'
+            search_fields: ['title', 'slug']
+            display_fields: ['title', 'slug']
+            required: false
+            hint: 'Slug da página principal desta cadeia.'
+            filters:
+              - field: slug
+                values: ['{{slug}}']
+                exclude: true
       - label: 'Modules'
         name: 'modules'
         widget: 'list'
