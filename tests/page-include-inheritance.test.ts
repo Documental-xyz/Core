@@ -45,6 +45,15 @@ describe('mergeWithFallback', () => {
     ).toEqual({});
   });
 
+  it('excludes excludeKeys from parent even when own is entirely undefined', () => {
+    // Bug regression: ownIsNull branch used to return parent without filtering excludeKeys
+    expect(
+      mergeWithFallback(undefined, { animations: 'disable_all', primaryColor: '#fff' }, {
+        excludeKeys: ['animations'],
+      })
+    ).toEqual({ primaryColor: '#fff' }); // animations removido, primaryColor mantido
+  });
+
   it('inherits excludeKeys-eligible keys when excludeKeys is not provided', () => {
     expect(mergeWithFallback({}, { animations: 'disable_all' })).toEqual({
       animations: 'disable_all',

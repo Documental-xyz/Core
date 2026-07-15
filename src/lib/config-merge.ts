@@ -43,14 +43,20 @@ export function mergeWithFallback<T extends Record<string, any> | undefined | nu
   const ownIsNull = own === undefined || own === null;
   const parentIsNull = parent === undefined || parent === null;
 
-  if (ownIsNull && parentIsNull) return undefined;
-  if (ownIsNull) return parent as T;
-  if (parentIsNull) return own;
-
   const excludeSet =
     options.excludeKeys instanceof Set
       ? options.excludeKeys
       : new Set(options.excludeKeys ?? []);
+
+  if (ownIsNull && parentIsNull) return undefined;
+  if (ownIsNull) {
+    const filtered: Record<string, any> = {};
+    for (const [key, value] of Object.entries(parent as Record<string, any>)) {
+      if (!excludeSet.has(key)) filtered[key] = value;
+    }
+    return filtered as T;
+  }
+  if (parentIsNull) return own;
 
   // Both exist — shallow clone own, fill missing keys from parent.
   const merged: Record<string, any> = { ...(own as Record<string, any>) };
