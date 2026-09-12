@@ -1,25 +1,18 @@
 ---
-// overlay: 'dark' | 'light' | vazio (nenhuma camada)
+//overlay deve ser: dark ou none
 
 const { imgBg, videoBg, txtColor, bgColor, overlay } = Astro.props;
 
 // imgBg e videoBg recebem a url direta (deve ser possível apenas um dos dois)
-// overlay: 'dark' | 'light' | vazio (nenhuma camada)
+// overlay recebe booleano
 
 const imgBgVar = imgBg && `url(${imgBg})`;
-
-// overlay: apenas 'dark'/'light' geram classe própria; qualquer valor
-// falsy/desconhecido (undefined, '', null, 'none') cai em group--overlay-none
-const overlayClass =
-  overlay === 'dark' || overlay === 'light'
-    ? `group--overlay-${overlay}`
-    : 'group--overlay-none';
 ---
 
 <section
   class:list={[
     "group",
-    overlayClass,
+    `group--overlay-${overlay}`,
     imgBg && `group--has-bg-image`,
   ]}
 >
@@ -84,19 +77,10 @@ const overlayClass =
       }
 
       #{$self}--overlay-dark & {
-        &::after {
-          opacity: 0.6;
-          mix-blend-mode: unset;
-        }
+        color: var(--clr-black);
 
-        &::before {
-          display: none;
-        }
-      }
-
-      #{$self}--overlay-light & {
         &::after {
-          opacity: 0.25;
+          opacity: 0.5;
           mix-blend-mode: unset;
         }
 

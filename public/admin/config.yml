@@ -1349,9 +1349,10 @@ group: &group
       name: 'overlay'
       widget: 'select'
       options:
+        - { label: 'None', value: 'none' }
         - { label: 'Dark', value: 'dark' }
         - { label: 'Light', value: 'light' }
-      required: false
+      required: true
       default: 'none'
       collapsed: true
     - label: 'Components'
